@@ -19,5 +19,8 @@ I trust that the intent will still be clear.
 In the process of putting these notes together, I used the following invaluable references:
 <ul>
 <li> <a href="https://www.packtpub.com/application-development/getting-started-julia-programming">Getting Started with Julia</a> (Ivo Balbaert, Packt Publishing);
+<li> <a href="http://samuelcolvin.github.io/JuliaByExample/">Julia by Example</a>;
+<li> <a href="https://en.wikibooks.org/wiki/Introducing_Julia">Introducing Julia</a>;
+<li> <a href="http://julialang.org/learning/">Julia Documentation</a>;
 <li> <a href="http://julia.readthedocs.org/en/latest/manual/">The Julia Manual</a>.
 </ul>
