@@ -13,6 +13,7 @@ instances, talking about "methods" when I should have said "functions", or "clas
 I trust that the intent will still be clear.
 
 - Day 1: [Installation and Orientation](http://wp.me/p3pzmk-td "Getting Julia installed and running")
+- Day 2: [Development Environments](http://wp.me/p3pzmk-tv "Environments for working on Julia code")
 
 ## Acknowledgements
 
