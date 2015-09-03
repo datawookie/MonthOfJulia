@@ -12,9 +12,10 @@ I'll apologise in advance that I have been sloppy in places and sometimes used t
 instances, talking about "methods" when I should have said "functions", or "class" when I should have said "type".
 I trust that the intent will still be clear.
 
-- Day 1: [Installation and Orientation](http://wp.me/p3pzmk-td "Getting Julia installed and running")
-- Day 2: [Development Environments](http://wp.me/p3pzmk-tv "Environments for working on Julia code")
+- Day 1: [Installation and Orientation](http://wp.me/p3pzmk-td "Getting Julia installed and running.")
+- Day 2: [Development Environments](http://wp.me/p3pzmk-tv "Environments for working on Julia code.")
 - Day 3: [Variables and Data Types](http://wp.me/p3pzmk-u1 "Integers, strings, etc.")
+- Day 4: [Functions](http://wp.me/p3pzmk-tB "Creating structure with functions.")
 
 ## Acknowledgements
 
