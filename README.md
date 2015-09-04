@@ -16,6 +16,7 @@ I trust that the intent will still be clear.
 - Day 2: [Development Environments](http://wp.me/p3pzmk-tv "Environments for working on Julia code.")
 - Day 3: [Variables and Data Types](http://wp.me/p3pzmk-u1 "Integers, strings, etc.")
 - Day 4: [Functions](http://wp.me/p3pzmk-tB "Creating structure with functions.")
+- Day 5: [Collections](http://wp.me/p3pzmk-vk "Groups of things.")
 
 ## Acknowledgements
 

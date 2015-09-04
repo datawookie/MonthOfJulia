@@ -16,7 +16,7 @@ x² = x -> x*x                   # To get x² type x\^2 followed by Tab in the R
 #
 x -> x^2
 #
-anonsquare = function (x)       # Creates an anonymous function and assigns it to square.
+anonsquare = function (x)       # Creates an anonymous function and assigns it to anonsquare.
     x^2
 end
 
