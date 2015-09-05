@@ -17,6 +17,7 @@ I trust that the intent will still be clear.
 - Day 3: [Variables and Data Types](http://wp.me/p3pzmk-u1 "Integers, strings, etc.")
 - Day 4: [Functions](http://wp.me/p3pzmk-tB "Creating structure with functions.")
 - Day 5: [Collections](http://wp.me/p3pzmk-vk "Groups of things.")
+- Day 6: [Composite Types](http://wp.me/p3pzmk-vv "Build your own funky types.")
 
 ## Acknowledgements
 
