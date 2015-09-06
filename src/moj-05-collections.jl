@@ -47,23 +47,25 @@ splice!(y, 2)                       # Remove an element from an array.
 
 # Ranges.
 #
-range(0, 0.5, 11)               # FloatRange <: FloatRange
-0:10                        # UnitRange <: FloatRange
+range(0, 0.5, 11)                   # FloatRange <: FloatRange
+0:10                                # UnitRange <: FloatRange
 typeof(0:10)
 #
-[range(0, 0.5, 11)]             # Range interpreted into an array
+[range(0, 0.5, 11)]                 # Range interpreted into an array
 [0:0.5:5]
 [0:10]
 typeof([0:10])
 
 # Searching.
 #
-in(1, x)                    # Check if an element is in a collection.
+in(1, x)                            # Check if an element is in a collection.
 #
-findfirst(x, 1)                 # Find index of first occurrence of 1.
-findfirst(isodd, x)             # Find index of first odd element. Note reversed order of arguments.
+findfirst(x, 1)                     # Find index of first occurrence of 1.
+findfirst(isodd, x)                 # Find index of first odd element. Note reversed order of arguments.
 #
-find(isodd, x)                  # Find indices of all odd elements.
+find([0, 1, 0, 5, 0, 1, 0, true])   # Find indices of all non-zero elements
+#
+find(isodd, x)                      # Find indices of all odd elements.
 #
 findnext(x, 1, 3)
 findnext(isprime, x, 4)             # Find next prime element, starting at index 4.
@@ -384,11 +386,6 @@ eltype([3:5])
 indexin([1, 3, 5, 7], rand(1:10, 5))            # See also findin().
 
 unique([1, 2, 2, 2, 3])
-
-reduce(+, [1, 2, 3])                    # See also foldl() and foldr().
-reduce(max, [1, 2, 3])
-#
-# There are aliases for common operations: maximum(), minimum(), sum(), prod(), any() and all().
 
 extrema([1, -5, 3, -3, 9])
 

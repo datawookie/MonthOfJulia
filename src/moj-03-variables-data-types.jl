@@ -68,6 +68,13 @@ x = 3.5;
 typeof(x)
 x = 8;
 typeof(x)
+#
+# The data types of used in the assignments above were inferred implicity by the interpreter. It is also possible to
+# explicitly specify the data type.
+#
+int32(8)
+float64(8)
+
 typeof(Int64)						# Data types are also types. Tautology? No doubt.
 
 # Type tests.
@@ -157,6 +164,12 @@ promote_type(Float64, Int64, Complex{Int64}, String)
 #
 (4 + 3im)^2
 
+# Rational numbers
+#
+1//2
+float(1//2)
+12//8                               # Fractions always expressed in simplest form.
+
 # Numerical precision
 #
 sqrt(2)
@@ -168,8 +181,8 @@ end
 
 # Single and Double precision constants are specified using special syntax.
 #
-1.23f-1						# Single precision
-1.23e-1						# Double precision
+1.23f-1						        # Single precision
+1.23e-1						        # Double precision
 
 # Arbitrary precision numbers are facilitated by BigInt and BigFloat.
 
