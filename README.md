@@ -19,6 +19,7 @@ I trust that the intent will still be clear.
 - Day 5: [Collections](http://wp.me/p3pzmk-vk "Groups of things.")
 - Day 6: [Composite Types](http://wp.me/p3pzmk-vv "Build your own funky types.")
 - Day 7: [Functional Programming](http://wp.me/p3pzmk-wG "Functions on functions.")
+- Day 8: [Iteration, Conditionals and Exceptions](http://wp.me/p3pzmk-u8 "Repetition, choices and breaking stuff.")
 
 ## Acknowledgements
 
