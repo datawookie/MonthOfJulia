@@ -34,23 +34,6 @@ end
 #
 x = (p = 2; q = 3; p + q)
 
-# SYMBOLS -------------------------------------------------------------------------------------------------------------
-
-# Symbols are a way of referring to variables without actually evaluating the variable. So we are talking about the
-# variable itself rather than its value. The concept of symbols is central to metaprogramming, which we'll get to
-# later.
-
-x = 5
-typeof(x)
-:x
-typeof(:x)
-eval(:x)
-
-:(x = 7)
-x
-eval(:(x = 7))
-x
-
 # SHELL VARIABLES -----------------------------------------------------------------------------------------------------
 
 ENV["SHELL"]
