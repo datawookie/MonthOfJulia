@@ -21,6 +21,7 @@ I trust that the intent will still be clear.
 - Day 7: [Functional Programming](http://wp.me/p3pzmk-wG "Functions on functions.")
 - Day 8: [Iteration, Conditionals and Exceptions](http://wp.me/p3pzmk-u8 "Repetition, choices and breaking stuff.")
 - Day 9: [Input/Output](http://wp.me/p3pzmk-xf "Reading and writing.")
+- Day 10: [Modules](http://wp.me/p3pzmk-xp "Keeping things modular.")
 
 ## Acknowledgements
 
