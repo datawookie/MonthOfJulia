@@ -175,6 +175,7 @@ end
 @task while true; produce(rand()); end
 # @spawnat                          -- Evaluate an expression on a specific (parallel) process.
 # @spawn                            -- Evaluate an expression on an automatically selected (parallel) process.
+# @parallel                         -- Parallel looping.
 # @schedule                         -- Convert expression to Task and add to scheduler queue.
 # @sync                             -- Wait for other processes (like those spawned by @async) to complete.
 # @async                            -- Schedule expression evaluation.
@@ -188,3 +189,5 @@ end
 # @code_native
 # @unix_only                        -- begin/end block of code only for UNIX environment
 # @windows_only                     -- begin/end block of code only for Windows environment
+# @inbounds
+# @fastmath

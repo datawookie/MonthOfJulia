@@ -23,6 +23,7 @@ I trust that the intent will still be clear.
 - Day 9: [Input/Output](http://wp.me/p3pzmk-xf "Reading and writing.")
 - Day 10: [Modules](http://wp.me/p3pzmk-xp "Keeping things modular.")
 - Day 11: [Metaprogramming](http://wp.me/p3pzmk-xD "Code making more code.")
+- Day 12: [Parallel Processing](http://wp.me/p3pzmk-xG "Doing many things at once.")
 
 ## Acknowledgements
 
