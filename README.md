@@ -26,6 +26,7 @@ I trust that the intent will still be clear.
 - Day 12: [Parallel Processing](http://wp.me/p3pzmk-xG "Doing many things at once.")
 - Day 13: [Packages](http://wp.me/p3pzmk-tr "Expanding Julia with add on packages.")
 - Day 14: [Data](http://wp.me/p3pzmk-xK "Grist for your analyses.")
+- Day 15: [Time Series](http://wp.me/p3pzmk-xT "Data gathered over time.")
 
 ## Acknowledgements
 
