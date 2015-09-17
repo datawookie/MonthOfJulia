@@ -1,19 +1,27 @@
 # RDATASETS ===========================================================================================================
 
-# THIS SHOULD BE ONE OF FIRST!!!
-
 # Documentation at https://github.com/johnmyleswhite/RDatasets.jl.
 
-sets = RDatasets.datasets()
+using RDatasets
+
+# Get a list of supported R packages.
+#
+RDatasets.packages()
+
+# Get a list of all datasets.
+#
+sets = RDatasets.datasets();
+size(sets)
+head(sets)
+
+# Find out what's available in the "vcd" package.
+#
+RDatasets.datasets("vcd")
 
 # List of packages.
 #
 sort(unique(sets[:Package]))
 
-# Find out what's available in the "datasets" package.
-#
-RDatasets.datasets("datasets")
-
 # Get a particular data set.
 #
-dataset("datasets", "women")
+women = dataset("datasets", "women")
