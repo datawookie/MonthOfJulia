@@ -11,9 +11,11 @@ using Quandl
 # By default this returns a TimeArray. You can get the data as a DataFrame by using the format = "DataFrame" argument.
 #
 google = quandl("YAHOO/GOOGL");                     # GOOGL at (default) daily intervals
+typeof(google)
 apple = quandl("YAHOO/AAPL", frequency = :weekly);  # AAPL at weekly intervals
 mmm = quandl("YAHOO/MMM", from = "2015-07-01");     # MMM starting at 2015-07-01
 rht = quandl("YAHOO/RHT", format = "DataFrame");    # As a DataFrame
+typeof(rht)
 
 # TIMEARRAY -----------------------------------------------------------------------------------------------------------
 
