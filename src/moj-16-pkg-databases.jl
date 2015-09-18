@@ -12,7 +12,7 @@ create(db, "passwd", readdlm("/etc/passwd", ':'), ["username", "password", "UID"
 
 # Execute a query on that table.
 #
-query(db, "select username, homedir from passwd;")
+query(db, "SELECT username, homedir FROM passwd LIMIT 10;")
 
 # Close the database.
 #
@@ -41,11 +41,11 @@ db = ODBC.connect("passwd")
 
 # Get metadata for query.
 #
-querymeta("select * from passwd limit 5", db)
+querymeta("SELECT * FROM passwd LIMIT 5;", db)
 
 # Execute query. This currently doesn't work. See https://github.com/quinnj/ODBC.jl/issues/96.
 #
-query("select * from passwd limit 5", db)
+query("SELECT * FROM passwd LIMIT 5;", db)
 
 # Close the database.
 #

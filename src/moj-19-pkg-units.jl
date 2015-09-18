@@ -1,6 +1,6 @@
 # SIUNITS =============================================================================================================
 
-# This package will bring joy to the hearts of all Physical Scientists. Or, acually, all Scientists.
+# This package will bring joy to the hearts of all Physical Scientists. Or, actually, all Scientists.
 
 # More documentation at https://github.com/Keno/SIUnits.jl.
 
