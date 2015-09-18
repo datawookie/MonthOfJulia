@@ -27,7 +27,7 @@ I trust that the intent will still be clear.
 - Day 13: [Packages](http://wp.me/p3pzmk-tr "Expanding Julia with add on packages.")
 - Day 14: [Data](http://wp.me/p3pzmk-xK "Grist for your analyses.")
 - Day 15: [Time Series](http://wp.me/p3pzmk-xT "Data gathered over time.")
-- Day 16: due to a slight technical issue, I'll be coming back to this day...
+- Day 16: [Databases](http://wp.me/p3pzmk-z9 "Querying a DB.")
 - Day 17: [Datasets from R](http://wp.me/p3pzmk-zu "A cornucopia of data courtesy of R.")
 
 ## Acknowledgements
