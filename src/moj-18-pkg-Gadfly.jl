@@ -10,6 +10,12 @@
 #
 #	- Gadfly (based on principles of the Grammar of Graphics)
 #	  http://gadflyjl.org/
+#
+#   - Bokeh
+#
+#   - Plotly
+#
+#   - Gaston
 
 # GADFLY ==============================================================================================================
 
@@ -36,11 +42,11 @@ damped_sin = plot([x -> sin(x) / x], 0, 50)
 # Save as SVG and PNG files.
 #
 draw(SVG("damped-sin.svg", 12inch, 8inch), damped_sin)
-draw(PNG("damped-sin.png", 300, 100), damped_sin)
+draw(PNG("damped-sin.png", 800px, 400px), damped_sin)
 
 # This is rather nice: unlike ggplot2 we do not have to pass in a data frame. We can simply use a vector.
 #
-plot(x = rand(1000), y = rand(1000), Geom.point())
+plot(x = rand(1000), y = rand(1000), Geom.point)
 
 # GET SOME DATA -------------------------------------------------------------------------------------------------------
 
@@ -56,11 +62,13 @@ plot(dataset("MASS", "nlschools"), x="IQ", y="Lang", Geom.point)
 
 # Colour points.
 #
-plot(dataset("MASS", "nlschools"), x="IQ", y="Lang", color="COMB", Geom.point, Geom.smooth(method=:lm))
+plot(dataset("MASS", "nlschools"), x="IQ", y="Lang", color="COMB", Geom.point)
 
 # Add in linear fits.
 #
-plot(dataset("MASS", "nlschools"), x="IQ", y="Lang", color="COMB", Geom.point)
+plot(dataset("MASS", "nlschools"), x="IQ", y="Lang", color="COMB", Geom.point,
+                                                                   Geom.smooth(method=:lm),
+                                                                   Guide.colorkey("Multi-Grade Class"))
 
 # Another example.
 #
@@ -73,7 +81,7 @@ plot(nuclear, x=:Date, y=:Cost, color=:CT, Geom.point)
 #
 # Redefine the column indicating presence of a Cooling Tower...
 #
-nuclear[:CT] = ifelse(nuclear[:CT] .== 1, "Y", "N")
+nuclear[:CT] = ifelse(nuclear[:CT] .== 1, "Y", "N");
 #
 # ... and try again, now changing colors and improving label on legend.
 #
@@ -85,6 +93,8 @@ plot(dataset("ISLR", "Weekly"), x = :Year, y = :Today, Geom.boxplot)
 
 # HISTOGRAM -----------------------------------------------------------------------------------------------------------
 
+chemscore = dataset("mlmRev", "Chem97");
+
 plot(chemscore, x="GCSEScore", color="Gender", Geom.histogram(bincount = 20))
 
 # PLOTTING FUNCTIONS --------------------------------------------------------------------------------------------------
@@ -93,7 +103,11 @@ plot([sin, cos, tan], 0, 20, Scale.y_continuous(maxvalue = 1, minvalue = -1))
 
 # PLOT LAYERS ---------------------------------------------------------------------------------------------------------
 
-# CHECK OUT OTHER SOURCE FILES WHERE WE HAVE USED LAYERS!
+# Gadfly can plot multiple layers. You'll see more examples when we look at regression techniques.
+
+plot(layer(x=0:10, y=rand(11), Geom.point),
+     layer(x=[0:0.5:10], y=rand(21), Geom.line))
+
 
 # CLEANUP -------------------------------------------------------------------------------------------------------------
 

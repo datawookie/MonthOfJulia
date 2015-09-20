@@ -61,3 +61,11 @@ map(x -> - log(1 - x), [-1, 0])
 # Or using Monte Carlo method (:monte_carlon). The default is Simpson's method (:simpsons).
 #
 integrate(x -> 1 / (1 - x), -1 , 0, :monte_carlo)
+
+# FORWARDDIFF =========================================================================================================
+
+using ForwardDiff
+
+# REVERSEDIFFSOURCE ===================================================================================================
+
+using ReverseDiffSource
