@@ -1,6 +1,6 @@
 # PLOTLY ==============================================================================================================
 
-# Documented at https://plot.ly/julia/.
+# Documented at https://plot.ly/julia/ and https://github.com/plotly/Plotly.jl.
 
 using Plotly
 
@@ -16,15 +16,15 @@ using Plotly
 
 # BASIC LINE PLOT -----------------------------------------------------------------------------------------------------
 
-p1 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" = "markers"]
-p2 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" = "lines"]
-p3 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" = "lines+markers"]
+p1 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" => "markers"];
+p2 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" => "lines"];
+p3 = ["x" => 1:10, "y" => rand(0:20, 10), "type" => "scatter", "mode" => "lines+markers"];
 
 Plotly.plot([p1, p2, p3], ["filename" => "basic-line", "fileopt" => "overwrite"])
 #
 # You can manually open the URL returned by the previous command or do it automatically.
 #
-Plotly.openurl(ans)
+Plotly.openurl(ans["url"])
 
 # There are many more bells and whistles which can be applied to these plots like:
 #
@@ -143,9 +143,8 @@ p1 = [
         ],
     ],
     "type" => "scatter3d"
-]
-
-layout = ["margin" => ["l" => 0, "r" => 0, "b" => 0, "t" => 0]]
+];
+layout = ["margin" => ["l" => 0, "r" => 0, "b" => 0, "t" => 0]];
 
 Plotly.plot([p1], ["layout" => layout, "filename" => "3D Scatter Plot", "fileopt" => "overwrite"])
 
