@@ -29,6 +29,7 @@ I trust that the intent will still be clear.
 - Day 15: [Time Series](http://wp.me/p3pzmk-xT "Data gathered over time.")
 - Day 16: [Databases](http://wp.me/p3pzmk-z9 "Querying a DB.")
 - Day 17: [Datasets from R](http://wp.me/p3pzmk-zu "A cornucopia of data courtesy of R.")
+- Day 18: [Plotting](http://wp.me/p3pzmk-tE "Pictures from formulae and data.")
 
 ## Acknowledgements
 
