@@ -10,7 +10,8 @@ using SIUnits.ShortUnits
 # Supports normal arithmetic operations.
 #
 1KiloGram + 2kg
-4Meter / 2m                         # Note that it only recognises the American spelling (Meter not Metre!)
+4Meter - 2m                         # Note that it only recognises the American spelling (Meter not Metre!)
+4m / 2s
 #
 # Compatible units can be mixed.
 #
@@ -36,9 +37,11 @@ using SIUnits.ShortUnits
 
 # Defining new units.
 #
-Micron = SIUnits.NonSIUnit{typeof(Meter),:µm}()
 import Base.convert
+#
+Micron = SIUnits.NonSIUnit{typeof(Meter),:µm}()
 convert(::Type{SIUnits.SIQuantity},::typeof(Micron)) = Micro*Meter
+5Micron
 1Micron + 1m
 #
 Angstrom = SIUnits.NonSIUnit{typeof(Meter),:Å}()
