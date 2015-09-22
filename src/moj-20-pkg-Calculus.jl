@@ -1,5 +1,7 @@
 # CALCULUS ============================================================================================================
 
+# JuliaDiff project [http://www.juliadiff.org/] is aggregating resources for differentiation in Julia.
+
 # https://github.com/johnmyleswhite/Calculus.jl
 
 using Calculus
