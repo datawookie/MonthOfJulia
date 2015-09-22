@@ -31,6 +31,7 @@ I trust that the intent will still be clear.
 - Day 17: [Datasets from R](http://wp.me/p3pzmk-zu "A cornucopia of data courtesy of R.")
 - Day 18: [Plotting](http://wp.me/p3pzmk-tE "Pictures from formulae and data.")
 - Day 19: [Units](http://wp.me/p3pzmk-zx "Measurements: quantities and units.")
+- Day 20: [Calculus](http://wp.me/p3pzmk-yh "Integrating and Differentiating like a Boss!")
 
 ## Acknowledgements
 
