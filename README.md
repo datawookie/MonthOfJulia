@@ -32,6 +32,7 @@ I trust that the intent will still be clear.
 - Day 18: [Plotting](http://wp.me/p3pzmk-tE "Pictures from formulae and data.")
 - Day 19: [Units](http://wp.me/p3pzmk-zx "Measurements: quantities and units.")
 - Day 20: [Calculus](http://wp.me/p3pzmk-yh "Integrating and Differentiating like a Boss!")
+- Day 21: [Differential Equations](http://wp.me/p3pzmk-AJ "Springs and pendulums.")
 
 ## Acknowledgements
 
