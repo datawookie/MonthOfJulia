@@ -66,8 +66,8 @@ function pendulum(t, y)
     ]
 end
 
-initial = [3/4 * pi, pi, 0, 0];         # Chaotic initial conditions
-# initial = [pi / 4, 0, 0, 0];          # Deterministic initial conditions
+initial = [3/4 * pi, pi, 0, 0];         # Initial conditions -> chaotic behaviour
+# initial = [pi / 4, 0, 0, 0];          # Initial conditions -> deterministic behaviour
 
 T, xv = ode23(pendulum, initial, [0.; 40]);
 xv = hcat(xv...).';
