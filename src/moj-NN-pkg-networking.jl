@@ -41,6 +41,12 @@ r4 = post("http://httpbin.org/post"; json = {"name" => "Claire", "gender" => 'F'
 
 # There is a selection of means for uploading a file via POST.
 
+# HTTPSERVER ==========================================================================================================
+
+using HttpServer
+
+# Check out http://iaindunning.com/blog/sudoku-as-a-service.html
+
 # TWITTER =============================================================================================================
 
 # This is much higher level networking.

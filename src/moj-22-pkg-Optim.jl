@@ -1,7 +1,9 @@
 # OPTIMISATION ========================================================================================================
 
-# Other options for optimisation are:
+# Options for optimisation are:
 #
+# Optim [https://github.com/JuliaOpt/Optim.jl]
+# NLopt [https://github.com/JuliaOpt/NLopt.jl]
 # JuMP [https://github.com/JuliaOpt/JuMP.jl]
 # JuMPeR [https://github.com/IainNZ/JuMPeR.jl]
 # Gurobi [https://github.com/JuliaOpt/Gurobi.jl]    --- interface to commercial package [http://www.gurobi.com/]
@@ -20,7 +22,7 @@
 #
 using NLopt
 
-count = 0
+count = 0;
 
 # The objective function. The gradient is only required for gradient-based algorithms.
 #
@@ -61,7 +63,9 @@ function constraint(x::Vector, grad::Vector, a, b, c)
     a * x[1] + b * x[2] - c
 end
 
-opt = Opt(:LD_MMA, 2)                           # Algorithm and dimension of problem
+# DERIVATIVE-FREE -----------------------------------------------------------------------------------------------------
+
+opt = Opt(:LN_COBYLA, 2);                       # Algorithm and dimension of problem
 ndims(opt)
 algorithm(opt)
 algorithm_name(opt)                             # Text description of algorithm
@@ -81,6 +85,29 @@ inequality_constraint!(opt, (x, g) -> constraint(x, g, 0, 2, pi), 1e-8)
 initial = [0, 0];                               # Initial guess
 
 (maxf, maxx, ret) = optimize(opt, initial)      # Perform optimisation
+println("got $maxf at $maxx after $count iterations.")
+
+# GRADIENT-BASED ------------------------------------------------------------------------------------------------------
+
+count = 0
+
+opt = Opt(:LD_MMA, 2);
+ndims(opt)
+algorithm(opt)
+algorithm_name(opt)
+
+# This time we'll remove the second inequality constraint and replace it with a restrictive upper bound.
+#
+lower_bounds!(opt, [0., 0.])
+upper_bounds!(opt, [pi, pi / 2])
+
+xtol_rel!(opt, 1e-6)
+
+max_objective!(opt, objective)
+
+inequality_constraint!(opt, (x, g) -> constraint(x, g, 2, -1, 0), 1e-8)
+
+(maxf, maxx, ret) = optimize(opt, initial)
 println("got $maxf at $maxx after $count iterations.")
 
 # OPTIM ===============================================================================================================

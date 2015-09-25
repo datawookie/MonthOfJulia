@@ -61,6 +61,9 @@ open("/etc/passwd") do fid
     readlines(fid)
 end
 #
+# Use of eachline() is much more efficient if an operation is to be applied to each line in a file. It avoids the
+# burden of having to load every line of the file into memory at once.
+#
 open("/etc/passwd") do fid
 	for line in eachline(fid)
 		print("$line")

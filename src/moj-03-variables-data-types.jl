@@ -253,7 +253,9 @@ lowercase("AbCdE")
 ucfirst("abcde")
 lcfirst("AbCdE")
 
-# Regular expressions.
+# REGULAR EXPRESSIONS -------------------------------------------------------------------------------------------------
+
+# Regular expressions are denoted by a 'r' prefix.
 #
 r1 = r"s[^ ]"
 #
