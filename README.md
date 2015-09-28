@@ -34,6 +34,7 @@ I trust that the intent will still be clear.
 - Day 20: [Calculus](http://wp.me/p3pzmk-yh "Integrating and Differentiating like a Boss!")
 - Day 21: [Differential Equations](http://wp.me/p3pzmk-AJ "Springs and pendulums.")
 - Day 22: [Optimisation](http://wp.me/p3pzmk-z3 "Locating peaks and troughs.")
+- Day 23: [Data Structures](http://wp.me/p3pzmk-zA "Queues and Counters.")
 
 ## Acknowledgements
 
@@ -44,5 +45,5 @@ In the process of putting these notes together, I used the following invaluable 
 <li> <a href="https://en.wikibooks.org/wiki/Introducing_Julia">Introducing Julia</a>;
 <li> <a href="http://julialang.org/learning/">Julia Documentation</a>;
 <li> <a href="http://julia.readthedocs.org/en/latest/manual/">The Julia Manual</a>;
-<li> Learn Julia (Chris von Csefalvay, Manning).
+<li> [Learn Julia](https://www.manning.com/books/learn-julia) (Chris von Csefalvay, Manning).
 </ul>
