@@ -35,6 +35,7 @@ I trust that the intent will still be clear.
 - Day 21: [Differential Equations](http://wp.me/p3pzmk-AJ "Springs and pendulums.")
 - Day 22: [Optimisation](http://wp.me/p3pzmk-z3 "Locating peaks and troughs.")
 - Day 23: [Data Structures](http://wp.me/p3pzmk-zA "Queues and Counters.")
+- Day 24: [Graphs](http://wp.me/p3pzmk-zp "Nodes and Edges.")
 
 ## Acknowledgements
 
