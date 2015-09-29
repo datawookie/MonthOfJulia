@@ -1,6 +1,33 @@
 # LIGHTGRAPHS =========================================================================================================
 
+# https://github.com/JuliaGraphs/LightGraphs.jl
+
 using LightGraphs
+
+srand(1)
+
+g1 = Graph(10, 20)                  # Graph with 10 nodes and 20 random edges
+
+g2 = StarDiGraph(4)
+edges(g2)
+
+degree(g1, 4)                       # How many neighbours for vertex 4?
+neighbors(g1, 4)                    # Find neighbours of vertex 4
+
+add_edge!(g1, 4, 8)                 # Add edge between vertices 4 and 8
+rem_edge!(g1, 4, 6)                 # Remove edge between vertices 4 and 6
+
+adjacency_matrix(g1)
+
+is_cyclic(g1)
+
+is_connected(g1)
+
+attracting_components(g2)
+
+paths = dijkstra_shortest_paths(g1, 4)
+names(paths)
+paths.dists                         # Distances from vertex 4 to all other vertices
 
 # GRAPHS ==============================================================================================================
 
@@ -93,9 +120,9 @@ end
 
 # GRAPH ATTRIBUTES ----------------------------------------------------------------------------------------------------
 
-V1 = ExVertex(1, "V1")
+V1 = ExVertex(1, "V1");
 V1.attributes["size"] = 5.0
-V2 = ExVertex(2, "V2")
+V2 = ExVertex(2, "V2");
 V2.attributes["size"] = 3.0
 V3 = ExVertex(3, "V3")
 
@@ -107,7 +134,7 @@ E1.attributes["color"] = "green"
 
 # Graphs of type GenericEdgeList.
 
-g3 = edgelist([V1, V2], [E1], is_directed = true)
+g3 = edgelist([V1, V2, V3], [E1], is_directed = true)
 
 # GRAPH TYPE: ADJACENCY LIST ------------------------------------------------------------------------------------------
 
@@ -177,17 +204,13 @@ maximal_cliques(g1a)
 
 # SHORTEST PATHS ------------------------------------------------------------------------------------------------------
 
-# Create edge distances, assuming that they all have same weight.
-#
-distances = ones(num_edges(g1a))
+distances = ones(num_edges(g1a));   # Assign distance of 1 to each edge.
 
 # Dijkstra's Algorithm.
 #
 d = dijkstra_shortest_paths(g1a, distances, 1)
 #
-# Vector of distances to all other vertices.
-#
-d.dists
+d.dists                             # Vector of distances to all other vertices.
 
 # A* Algorithm (finding shortest path between two vertices).
 #
@@ -226,6 +249,8 @@ distance_matrix(g1a, distances)
 using GraphCentrality
 
 # EVOLVINGGRAPHS ======================================================================================================
+
+# https://github.com/weijianzhang/EvolvingGraphs.jl
 
 using EvolvingGraphs
 
