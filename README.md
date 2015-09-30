@@ -36,6 +36,7 @@ I trust that the intent will still be clear.
 - Day 22: [Optimisation](http://wp.me/p3pzmk-z3 "Locating peaks and troughs.")
 - Day 23: [Data Structures](http://wp.me/p3pzmk-zA "Queues and Counters.")
 - Day 24: [Graphs](http://wp.me/p3pzmk-zp "Nodes and Edges.")
+- Day 25: [Interfacing with Other Languages](http://wp.me/p3pzmk-z4 "FORTRAN, C, Python etc.")
 
 ## Acknowledgements
 
