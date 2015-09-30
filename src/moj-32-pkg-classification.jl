@@ -2,7 +2,7 @@
 
 
 
-# MENTION THIS: http://bensadeghi.com/decision-trees-julia/
+# A more extensive introduction to decision trees with Julia at http://bensadeghi.com/decision-trees-julia/.
 
 
 
@@ -14,7 +14,7 @@
 #	- data preprocessing;
 #	- performance evaluation;
 #	- cross-validation; and
-#	- model tuningg.
+#	- model tuning.
 #
 # Find out more at http://mlbasejl.readthedocs.org/en/latest/index.html
 #
@@ -25,11 +25,11 @@ using MLBase
 using RDatasets
 using Distributions
 
-iris = dataset("datasets", "iris")
+iris = dataset("datasets", "iris");
 
 # Identifier for train/test split.
 #
-train = rand(Bernoulli(0.75), nrow(iris)) .== 1
+train = rand(Bernoulli(0.75), nrow(iris)) .== 1;
 
 # NEURAL NETWORK ------------------------------------------------------------------------------------------------------
 
@@ -38,6 +38,8 @@ train = rand(Bernoulli(0.75), nrow(iris)) .== 1
 
 # DECISION TREE -------------------------------------------------------------------------------------------------------
 
+# http://github.com/bensadeghi/DecisionTree.jl
+
 using DecisionTree
 
 features = array(iris[:,1:4]);
@@ -45,7 +47,7 @@ labels = [n == "versicolor" ? 1 : 0 for n in iris[:Species]];
 
 # Fit a Decision Tree Classifier.
 #
-model = build_tree(labels[train], features[train,:])
+model = build_tree(labels[train], features[train,:]);
 
 # Print tree structure.
 #
@@ -62,6 +64,8 @@ predictions = apply_tree(model, features[!train,:])
 ROC = roc(labels[!train], convert(Array{Int32,1}, predictions))
 true_positive_rate(ROC)
 true_negative_rate(ROC)
+precision(ROC)
+recall(ROC)
 
 # Cross Validation.
 #
@@ -126,6 +130,13 @@ y = [n == 1 ? +1 : -1 for n in labels];
 model = svm(X[:,train], y[train])
 
 # Evaluate the model.
+#
+predictions = predict(model, X[:,~train]);
+ROC = roc(y[~train], convert(Array{Int32,1}, predictions))
+true_positive_rate(ROC)
+true_negative_rate(ROC)
+#
+# What about the accuracy?
 #
 countnz(predict(model, X[:,~train]) .== y[~train]) / sum(!train)
 
