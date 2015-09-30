@@ -2,11 +2,11 @@
 
 # There is builtin functionality for random number generation.
 #
-srand(359)						# Set random number seed.
-rand()							# Random number on [0, 1)
-rand(3, 4)						# 3 x 4 matrix of random numbers on [0, 1)
-rand(1:10, 3)						# Sample 3 items from the range 1, ..., 10.
-randn(2, 2)						# 2 x 2 matrix of random numbers from standard Normal
+srand(359)                          # Set random number seed.
+rand()                              # Random number on [0, 1)
+rand(3, 4)                          # 3 x 4 matrix of random numbers on [0, 1)
+rand(1:10, 3)                       # Sample 3 items from the range 1, ..., 10.
+randn(2, 2)                         # 2 x 2 matrix of random numbers from standard Normal
 
 # More information available at http://distributionsjl.readthedocs.org/en/latest/.
 
@@ -15,37 +15,37 @@ using Distributions
 # Distribution hierarchy (incomplete!):
 #
 # Univariate
-#	Discrete
-#		Bernoulli
-#		Binomial
-#		Categorical
-#		DiscreteUniform
-#		Poisson
-#	Continuous
-#		Beta
-#		Cauchy
-#		Exponential
-#		Normal
-#		Uniform
+#   Discrete
+#       Bernoulli
+#       Binomial
+#       Categorical
+#       DiscreteUniform
+#       Poisson
+#   Continuous
+#       Beta
+#       Cauchy
+#       Exponential
+#       Normal
+#       Uniform
 # Multivariate
-#	Discrete
-#		Multinomial
-#	Continuous
-#		MvNormal
+#   Discrete
+#       Multinomial
+#   Continuous
+#       MvNormal
 # Matrixvariate
-#	Discrete
-#	Continuous
-#		Wishart
+#   Discrete
+#   Continuous
+#       Wishart
 #
 # This is really just a small subset of the MANY distributions which are catered for.
 
 # Methods for the distributions:
 #
-# length()	- length of each sample
-# size()	- shape of each sample
-# eltype()	- default data type of each sample
-# rand()	- generate one or more samples
-# rand!()	- generate one of more samples into pre-allocated space
+# length()  - length of each sample
+# size()    - shape of each sample
+# eltype()  - default data type of each sample
+# rand()    - generate one or more samples
+# rand!()   - generate one of more samples into pre-allocated space
 
 # Set the RNG seed so that this is reproducible
 #
@@ -70,7 +70,7 @@ d1.σ
 
 # Generate a vector of samples
 #
-x = rand(d1, 1000)
+x = rand(d1, 1000);
 
 # Visual inspection
 #
@@ -114,7 +114,7 @@ loglikelihood(d1, [-1 0 0 1 1 1 1 2 2 3])
 #
 d2 = Truncated(d1, -4.0, 6.0)
 
-x = rand(d2, 1000)
+x = rand(d2, 1000);
 
 plot(x -> pdf(d2, x), -10, 10)
 
@@ -142,6 +142,8 @@ minimum(d3)
 #
 d4 = Bernoulli(0.25)
 
+rand(d4, 10)
+
 succprob(d4)
 failprob(d4)
 
@@ -152,6 +154,8 @@ mean(rand(d4, 1000))
 # Binomial Distribution with a success rate of 25% for 100 independent trials.
 #
 d5 = Binomial(100, 0.25)
+
+rand(d5, 10)
 
 ntrials(d5)
 succprob(d5)
@@ -164,11 +168,11 @@ super(Poisson)
 
 d6 = Poisson(10.0)
 
+rand(d6, 10)
+
 rate(d6)
 mean(d6)
 var(d6)
-
-rand(d6, 100)
 
 # EXPONENTIAL DISTRIBUTION --------------------------------------------------------------------------------------------
 
@@ -207,24 +211,8 @@ rand(d9, 10)
 
 # PARAMETER ESTIMATION ------------------------------------------------------------------------------------------------
 
-x = rand(d1, 10000)
-
+x = rand(d1, 10000);
+#
 # Fit distribution to data using Maximum Likelihood.
 #
 fit(Normal, x)
-
-# EXAMPLE -------------------------------------------------------------------------------------------------------------
-
-# Make DeckOfCards derived type (possibly from Categorical Distribution or DiscreteUnivarateDistribution).
-#
-# Probably best to actually just make a "Univariate Sampler".
-#
-# See http://distributionsjl.readthedocs.org/en/latest/extends.html
-# https://github.com/JuliaStats/Distributions.jl/blob/master/src/samplers/gamma.jl
-
-type DeckOfCards <: Sampleable{Univariate,Discrete}
-end
-
-# rand(d::DeckOfCards) = 0
-
-

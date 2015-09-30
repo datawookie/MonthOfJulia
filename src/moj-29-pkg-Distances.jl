@@ -1,7 +1,5 @@
 # DISTANCES ===========================================================================================================
 
-# THIS WILL BE A PRELUDE TO CLUSTERING!!!
-
 # Documentation at https://github.com/JuliaStats/Distances.jl
 
 # The package supports a range of distance metrics, amongst which are Euclidean, Cityblock ("Manhattan"), Cosine and
@@ -11,8 +9,8 @@ using Distances
 
 # VECTORS -------------------------------------------------------------------------------------------------------------
 
-x = [1, 2, 3]
-y = [-1, 3, 5]
+x = [1., 2., 3.];
+y = [-1., 3., 5.];
 
 # You can calculate the Euclidean distance two ways:
 #
@@ -25,14 +23,18 @@ euclidean(x, y)
 #
 evaluate(Cityblock(), x, y)
 cityblock(x, y)
+#
+evaluate(CosineDist(), x, y)
+evaluate(Chebyshev(), x, y)
 
 # COLUMNS -------------------------------------------------------------------------------------------------------------
 
-X = [0 1; 0 2; 0 3]
-Y = [1 -1; 1 3; 1 5]
+X = [0 1; 0 2; 0 3];
+Y = [1 -1; 1 3; 1 5];
 
 # Compute distances between corresponding columns of matrices.
 #
+colwise(Euclidean(), X, Y)
 colwise(Hamming(), X, Y)
 colwise(Chebyshev(), X[:,1], Y)
 #
@@ -50,7 +52,7 @@ pairwise(Euclidean(), X)
 
 # Using different metrics.
 #
-pairwise(Mahalanobis(eye(3)), X, Y)		# Effectively just the Euclidean metric
+pairwise(Mahalanobis(eye(3)), X, Y)     # Effectively just the Euclidean metric
 pairwise(WeightedEuclidean([1.0, 2.0, 3.0]), X, Y)
 
 # The pair-wise implementations aree also significantly faster than using a loop. In some cases absurdly faster!

@@ -169,6 +169,10 @@ predictions = apply_forest(model, features)
 
 nfoldCV_forest(labels, features, 1, 50, 10)
 
+# REGTOOLS ============================================================================================================
+
+using RegTools
+
 # OTHER REGRESSION PACKAGES ===========================================================================================
 
 # These packages also have regression functionality:

@@ -16,9 +16,9 @@ ccall(:printf, Cint, (Ptr{Uint8},), "Hello World!")
 
 # Calls to ccall() can also be wrapped in a function definition, of course.
 #
-csqrt(x) = ccall((:sqrt, "libm"), Float64, (Float64,), x)
+csqrt(x) = ccall((:sqrt, "libm"), Float64, (Float64,), x);
 csqrt(64.0)
-sqrt(64.0)
+sqrt(64.0)                          # You're right, I didn't need to call a function to confirm that!
 #
 # The resulting function is not vectorised by default.
 #
@@ -26,7 +26,7 @@ csqrt([1, 4, 9, 16])
 #
 # But it can be vectorised very easily with a handy macro.
 #
-@vectorize_1arg Real csqrt
+@vectorize_1arg Real csqrt;
 methods(csqrt)
 csqrt([1, 4, 9, 16])
 
@@ -115,7 +115,7 @@ pyeval("[x for x in dict.keys()]", dict = PyDict(["foo" => 43, "bar" => 3.5]))
 #
 cube = x -> x * x * x
 pycube = PyObject(cube)
-pycall(pycube, PyAny, 3)				# Evaluating the Julia function in Python.
+pycall(pycube, PyAny, 3)                # Evaluating the Julia function in Python.
 #
 # You can do the same thing with C (http://julialang.org/blog/2013/05/callback/).
 
@@ -204,8 +204,8 @@ reval("c(1:3, NA, 5)") |> DataArray
 
 # Base graphics.
 #
-reval("plot(1:10)")			# Will pop up a graphics window...
-reval("dev.off()")			# ... and close the window.
+reval("plot(1:10)");                # Will pop up a graphics window...
+reval("dev.off()")                  # ... and close the window.
 #
 # You can send the graphics output to a file by first calling pdf(), png() or related via reval().
 
@@ -219,7 +219,7 @@ reval("dev.off()");
 #
 x = [0:0.01:pi]
 y = sin(x)
-rprint(rcall(:plot, x, y))		# A little contaminated by text!
+rprint(rcall(:plot, x, y))      # A little contaminated by text!
 reval("dev.off()");
 rprint(rcall(:plot, x, y, xlab = "x", ylab = "y"))
 reval("dev.off()");
