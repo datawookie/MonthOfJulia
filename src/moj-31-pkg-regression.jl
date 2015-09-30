@@ -1,7 +1,5 @@
 # GLM =================================================================================================================
 
-# NEEDS TO GO AFTER DISTRIBUTIONS
-
 using GLM
 
 # Family	Canonical Link Function
@@ -19,11 +17,11 @@ points = DataFrame();
 points[:x] = rand(Uniform(0.0, 10.0), 500);
 points[:y] = 2 + 3 * points[:x] + rand(Normal(1.0, 3.0) , 500);
 points[:z] = rand(Uniform(0.0, 10.0), 500);
-points[:r] = 2 * points[:y] + points[:z] + rand(Normal(0.0, 3.0), 500) .> 35;
+points[:valid] = 2 * points[:y] + points[:z] + rand(Normal(0.0, 3.0), 500) .> 35;
 
 using Gadfly
 
-plot(points, x = :x, y = :y, color = points[:r], Geom.point())
+plot(points, x = :x, y = :y, color = points[:valid], Geom.point())
 
 # LINEAR REGRESSION ---------------------------------------------------------------------------------------------------
 
@@ -58,18 +56,18 @@ model = fit(LinearModel, y ~ x, points)
 
 # Plot points along with fitted model
 #
-plot(points, layer(x = :x, y = predict(model), Geom.line(), Theme(default_color=color("black"))),
-             layer(x = :x, y = :y, color = points[:z], Geom.point()))
+plot(points, layer(x = :x, y = predict(model), Geom.line(), Theme(default_color = colorant"black")),
+             layer(x = :x, y = :y, color = points[:valid], Geom.point()), Guide.colorkey("Valid"))
 
 # LOGISTIC REGRESSION -------------------------------------------------------------------------------------------------
 
 # Logistic regression using a Probit link function
 #
-model = glm(r ~ x + y, points, Binomial(), ProbitLink())
+model = glm(valid ~ x + y + z, points, Binomial(), ProbitLink())
 
 # Logistic regression using a Logistic link function
 #
-model = glm(r ~ x + y, points, Binomial(), LogitLink())
+model = glm(valid ~ x + y + z, points, Binomial(), LogitLink())
 
 # POISSON REGRESSION --------------------------------------------------------------------------------------------------
 
@@ -114,7 +112,7 @@ path.a0
 #
 path.betas
 
-# Now we models for a variety of λ, how do we know which one is best? Cross-validation!
+# Now have we models for a variety of λ, how do we know which one is best? Cross-validation!
 #
 path = glmnetcv(X, y)
 
