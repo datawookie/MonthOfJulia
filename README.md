@@ -38,6 +38,7 @@ I trust that the intent will still be clear.
 - Day 24: [Graphs](http://wp.me/p3pzmk-zp "Nodes and Edges.")
 - Day 25: [Interfacing with Other Languages](http://wp.me/p3pzmk-z4 "FORTRAN, C, Python etc.")
 - Day 26: [Statistics](http://wp.me/p3pzmk-z5 "Mean, Variance etc.")
+- Day 27: [Distributions](http://wp.me/p3pzmk-yk "Generating samples from Distributions of any sort.")
 
 ## Acknowledgements
 
