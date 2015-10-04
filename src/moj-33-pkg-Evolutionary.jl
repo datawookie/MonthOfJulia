@@ -5,11 +5,56 @@
 #	- Evolutionary
 #	- GeneticAlgorithms
 
+# Source of Evolutionary at https://github.com/wildart/Evolutionary.jl.
 # Documentation on Evolutionary at http://evolutionaryjl.readthedocs.org/en/latest/index.html.
 
 # Documentation on GeneticAlgorithms at https://github.com/forio/GeneticAlgorithms.jl.
 
-# EXAMPLE -------------------------------------------------------------------------------------------------------------
+# EVOLUTIONARY --------------------------------------------------------------------------------------------------------
+
+using Evolutionary
+
+utility = [10, 20, 15, 2, 30, 10, 30, 45, 50];
+mass = [1, 5, 10, 1, 7, 5, 1, 2, 10];
+
+# Utility per unit mass.
+#
+utility ./ mass
+
+function summass(n::Vector{Bool})
+    sum(mass .* n)
+end
+
+function objective(n::Vector{Bool})
+    (summass(n) <= 20) ? sum(utility .* n) : 0
+end
+
+# Test total mass and objective functions.
+#
+summass([false, false, true, false, false, false, false, false, true])
+objective([false, false, true, false, false, false, false, false, true])
+
+best, invbestfit, generations, tolerance, history = ga(
+    x -> 1 / objective(x),                  # Function to MINIMISE
+    9,                                      # Length of chromosome
+    initPopulation = collect(randbool(9)),
+    selection = roulette,                   # Options: sus
+    mutation = inversion,                   # Options:
+    crossover = singlepoint,                # Options:
+    mutationRate = 0.2,
+    crossoverRate = 0.5,
+    ɛ = 0.1,                                # Elitism
+    debug = false,
+    verbose = false,
+    iterations = 200,
+    populationSize = 50,
+    interim = true)
+
+summass(best)
+objective(best)
+1 / invbestfit
+
+# GENETICALGORITHMS ---------------------------------------------------------------------------------------------------
 
 # Find integers a, b, c and d such that a + 2b + 3c +4d is as close to 30 as possible.
 #
@@ -98,8 +143,9 @@ model = runga(equalityga; initial_pop_size = 16)
 
 population(model)
 
-# EqualityEntity([-40,21,0,-5,12],0)
-
-# POSTSCRIPT: A lengthy discussion of various applications of GA canbe found here (http://stackoverflow.com/questions/1538235/what-are-good-examples-of-genetic-algorithms-genetic-programming-solutions).
+# POSTSCRIPT: A lengthy discussion of various applications of GA can be found here:
+#
+# http://stackoverflow.com/questions/1538235/what-are-good-examples-of-genetic-algorithms-genetic-programming-solutions.
+#
 # If I had some time on my hands then I would like to try out a problem like this (http://www.benjoffe.com/holdem), although
 # possibly looking at Blackjack or Baccarat rather than Texas Hold'em Poker.

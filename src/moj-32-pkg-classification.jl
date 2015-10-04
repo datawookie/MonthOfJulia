@@ -1,11 +1,5 @@
 # CLASSIFICATION ======================================================================================================
 
-
-
-# A more extensive introduction to decision trees with Julia at http://bensadeghi.com/decision-trees-julia/.
-
-
-
 # The MachineLearning package aims to consolidate present a consistent API to common machine learning algorithms. It is
 # in the early stages of development and documentation is sparse.
 
@@ -31,13 +25,22 @@ iris = dataset("datasets", "iris");
 #
 train = rand(Bernoulli(0.75), nrow(iris)) .== 1;
 
+# LOGISTIC REGRESSION -------------------------------------------------------------------------------------------------
+
+# See file for regression.
+
 # NEURAL NETWORK ------------------------------------------------------------------------------------------------------
 
 # There are at least two packages which implement Neural Networks (BackpropNeuralNet and NeuralNets). Documentation
 # for both of these packages is pretty sparse.
 
+# using BackpropNeuralNet
+# using NeuralNets
+
 # DECISION TREE -------------------------------------------------------------------------------------------------------
 
+# An extensive introduction to decision trees with Julia at http://bensadeghi.com/decision-trees-julia/.
+#
 # http://github.com/bensadeghi/DecisionTree.jl
 
 using DecisionTree
