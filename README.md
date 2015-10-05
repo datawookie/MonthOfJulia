@@ -8,6 +8,7 @@ R is still my preferred tool for day to day analytical tasks but I can see that 
 
 ## Links to Blog Posts
 
+The code in this repository was written to accompany a series of blog posts, which can be accessed [here](http://www.exegetic.biz/blog/tag/monthofjulia/) or directly via the list below.
 I'll apologise in advance that I have been sloppy in places and sometimes used the incorrect nomenclature. For
 instances, talking about "methods" when I should have said "functions", or "class" when I should have said "type".
 I trust that the intent will still be clear.
@@ -39,6 +40,7 @@ I trust that the intent will still be clear.
 - Day 25: [Interfacing with Other Languages](http://wp.me/p3pzmk-z4 "FORTRAN, C, Python etc.")
 - Day 26: [Statistics](http://wp.me/p3pzmk-z5 "Mean, Variance etc.")
 - Day 27: [Distributions](http://wp.me/p3pzmk-yk "Generating samples from Distributions of any sort.")
+- Day 28: [Hypothesis Tests](http://wp.me/p3pzmk-zL "")
 
 ## Acknowledgements
 
