@@ -40,7 +40,8 @@ I trust that the intent will still be clear.
 - Day 25: [Interfacing with Other Languages](http://wp.me/p3pzmk-z4 "FORTRAN, C, Python etc.")
 - Day 26: [Statistics](http://wp.me/p3pzmk-z5 "Mean, Variance etc.")
 - Day 27: [Distributions](http://wp.me/p3pzmk-yk "Generating samples from Distributions of any sort.")
-- Day 28: [Hypothesis Tests](http://wp.me/p3pzmk-zL "")
+- Day 28: [Hypothesis Tests](http://wp.me/p3pzmk-zL "p-Values and Confidence Intervals.")
+- Day 29: [Distances](http://wp.me/p3pzmk-Dy "Euclidean, Manhattan, Cosine: different ways to calculate distances.")
 
 ## Acknowledgements
 
