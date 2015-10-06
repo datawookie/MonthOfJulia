@@ -56,3 +56,25 @@ pairwise(Mahalanobis(eye(3)), X, Y)     # Effectively just the Euclidean metric
 pairwise(WeightedEuclidean([1.0, 2.0, 3.0]), X, Y)
 
 # The pair-wise implementations aree also significantly faster than using a loop. In some cases absurdly faster!
+
+# IRIS EXAMPLE --------------------------------------------------------------------------------------------------------
+
+using RDatasets
+
+iris = dataset("datasets", "iris");
+
+# Retain only numeric columns and convert to Array.
+#
+iris = convert(Array, iris[:,1:4]);
+#
+# Transpose (required for distance calculations).
+#
+iris = transpose(iris);
+
+dist_iris = pairwise(Euclidean(), iris);
+dist_iris[1:5,1:5]
+
+using Plotly
+
+data = [["z" => dist_iris, "type" => "heatmap"]];
+Plotly.plot(data, ["filename" => "iris-heatmap", "fileopt" => "overwrite"])
