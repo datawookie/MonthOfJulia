@@ -34,6 +34,8 @@ end
 summass([false, false, true, false, false, false, false, false, true])
 objective([false, false, true, false, false, false, false, false, true])
 
+srand(101)
+
 best, invbestfit, generations, tolerance, history = ga(
     x -> 1 / objective(x),                  # Function to MINIMISE
     9,                                      # Length of chromosome
@@ -48,11 +50,21 @@ best, invbestfit, generations, tolerance, history = ga(
     verbose = false,
     iterations = 200,
     populationSize = 50,
-    interim = true)
+    interim = true);
 
 summass(best)
 objective(best)
 1 / invbestfit
+
+using Gadfly
+
+plot(layer(y = [mean(fit) for fit in history[:fitness]], Geom.line(), Geom.point(), Theme(default_color = colorant"green")),
+     layer(y = [maximum(fit) for fit in history[:fitness]], Geom.line(), Theme(default_color = colorant"red")),
+     Guide.xlabel("Iteration"),
+     Guide.ylabel("Utility"),
+     Guide.manual_color_key("",
+                            ["average", "maximum"],
+                            ["green", "red"]))
 
 # GENETICALGORITHMS ---------------------------------------------------------------------------------------------------
 

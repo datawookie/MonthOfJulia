@@ -66,6 +66,8 @@ using DataArrays
 #
 x = @data([1, 2, 3, 4, NA, 6])
 
+# Removing columns: use delete!(df, colname) where colname specified as a symbol.
+
 # Deal with missing data by dropping it...
 #
 dropna(x)
