@@ -18,6 +18,7 @@ points[:x] = rand(Uniform(0.0, 10.0), 500);
 points[:y] = 2 + 3 * points[:x] + rand(Normal(1.0, 3.0) , 500);
 points[:z] = rand(Uniform(0.0, 10.0), 500);
 points[:valid] = 2 * points[:y] + points[:z] + rand(Normal(0.0, 3.0), 500) .> 35;
+head(points)
 
 using Gadfly
 

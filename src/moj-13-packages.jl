@@ -40,6 +40,7 @@ Pkg.add("Gadfly")
 Pkg.add("GeneticAlgorithms")
 Pkg.add("GLM")
 Pkg.add("GLMNet")
+Pkg.add("GradientBoost")
 Pkg.add("GraphCentrality")
 Pkg.add("Graphs")
 Pkg.add("HDF5")
@@ -82,6 +83,7 @@ Pkg.add("SymPy")
 Pkg.add("TimeSeries")
 Pkg.add("Twitter")
 Pkg.add("ValidatedNumerics")
+Pkg.add("XGBoost")
 
 # LOADING -------------------------------------------------------------------------------------------------------------
 

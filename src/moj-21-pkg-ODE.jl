@@ -83,8 +83,6 @@ plot(x = xv[:,1], y = xv[:,2], Geom.path(), Theme(default_color = colorant"red")
      Guide.ylabel("θ<sub>2</sub>"),
      Guide.title("Phase Space of a Double Pendulum"))
 
-
-
 # DASSL ===============================================================================================================
 
 using DASSL

@@ -25,6 +25,9 @@ iris = dataset("datasets", "iris");
 #
 train = rand(Bernoulli(0.75), nrow(iris)) .== 1;
 
+features = convert(Array, iris[:,1:4]);
+labels = [n == "versicolor" ? 1 : 0 for n in iris[:Species]];
+
 # LOGISTIC REGRESSION -------------------------------------------------------------------------------------------------
 
 # See file for regression.
@@ -37,16 +40,13 @@ train = rand(Bernoulli(0.75), nrow(iris)) .== 1;
 # using BackpropNeuralNet
 # using NeuralNets
 
-# DECISION TREE -------------------------------------------------------------------------------------------------------
+# DECISIONTREE ========================================================================================================
 
 # An extensive introduction to decision trees with Julia at http://bensadeghi.com/decision-trees-julia/.
 #
 # http://github.com/bensadeghi/DecisionTree.jl
 
 using DecisionTree
-
-features = array(iris[:,1:4]);
-labels = [n == "versicolor" ? 1 : 0 for n in iris[:Species]];
 
 # Fit a Decision Tree Classifier.
 #
@@ -114,7 +114,7 @@ true_negative_rate(ROC)
 #
 nfoldCV_stumps(labels[train], features[train,:], 5, 10)
 
-# SVM -----------------------------------------------------------------------------------------------------------------
+# SVM =================================================================================================================
 
 # Documentation on SVM package is at https://github.com/JuliaStats/SVM.jl.
 
@@ -142,6 +142,37 @@ true_negative_rate(ROC)
 # What about the accuracy?
 #
 countnz(predict(model, X[:,~train]) .== y[~train]) / sum(!train)
+
+# GRADIENTBOOSTML =====================================================================================================
+
+using GradientBoost
+
+# XGBOOST =============================================================================================================
+
+# https://github.com/antinucleon/XGBoost.jl
+
+using XGBoost
+#
+# There might be a conflict between predict() in XGBoost and another method, in which case you'll need to restart
+# your Julia session and only load XGBoost.
+
+nrounds = 2;
+
+model = xgboost(features[train,:], nrounds, label = labels[train], eta = 1, max_depth = 2)
+
+predictions = predict(model, features[!train,:]);
+
+using Gadfly
+
+plot(x = labels[!train], y = predictions, Geom.boxplot)
+
+# Apply naive threshold
+#
+predictions = predictions .> 0.5;
+
+ROC = roc(labels[!train], convert(Array{Int32,1}, predictions))
+precision(ROC)
+recall(ROC)
 
 # ENSEMBLE LEARNING ---------------------------------------------------------------------------------------------------
 
