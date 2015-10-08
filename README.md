@@ -43,6 +43,7 @@ I trust that the intent will still be clear.
 - Day 28: [Hypothesis Tests](http://wp.me/p3pzmk-zL "p-Values and Confidence Intervals.")
 - Day 29: [Distances](http://wp.me/p3pzmk-Dy "Euclidean, Manhattan, Cosine: different ways to calculate distances.")
 - Day 30: [Clustering](http://wp.me/p3pzmk-yr "Putting similar things together.")
+- Day 31: [Regression](http://wp.me/p3pzmk-z2 "Fitting a straight line to a bundle of points.")
 
 ## Acknowledgements
 
