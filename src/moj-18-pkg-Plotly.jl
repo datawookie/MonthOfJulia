@@ -25,6 +25,8 @@ Plotly.plot([p1, p2, p3], ["filename" => "basic-line", "fileopt" => "overwrite"]
 # You can manually open the URL returned by the previous command or do it automatically.
 #
 Plotly.openurl(ans["url"])
+#
+# Note: That will only work in the interactive terminal. It will fail with an error if this is run as a script.
 
 # There are many more bells and whistles which can be applied to these plots like:
 #
@@ -147,5 +149,3 @@ p1 = [
 layout = ["margin" => ["l" => 0, "r" => 0, "b" => 0, "t" => 0]];
 
 Plotly.plot([p1], ["layout" => layout, "filename" => "3D Scatter Plot", "fileopt" => "overwrite"])
-
-

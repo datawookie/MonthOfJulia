@@ -41,8 +41,8 @@ best, invbestfit, generations, tolerance, history = ga(
     9,                                      # Length of chromosome
     initPopulation = collect(randbool(9)),
     selection = roulette,                   # Options: sus
-    mutation = inversion,                   # Options:
-    crossover = singlepoint,                # Options:
+    mutation = inversion,                   # Options: insertion, swap2, scramble, shifting
+    crossover = singlepoint,                # Options: twopoint, uniform
     mutationRate = 0.2,
     crossoverRate = 0.5,
     ɛ = 0.1,                                # Elitism
@@ -51,6 +51,8 @@ best, invbestfit, generations, tolerance, history = ga(
     iterations = 200,
     populationSize = 50,
     interim = true);
+
+best
 
 summass(best)
 objective(best)
@@ -65,6 +67,31 @@ plot(layer(y = [mean(fit) for fit in history[:fitness]], Geom.line(), Geom.point
      Guide.manual_color_key("",
                             ["average", "maximum"],
                             ["green", "red"]))
+
+using Plotly
+
+p1 = ["x" => 1:200, "y" => [maximum(fit) for fit in history[:fitness]],
+    "name" => "Maximum",
+    "type" => "scatter"];
+p2 = ["x" => 1:200, "y" => [mean(fit) for fit in history[:fitness]],
+    "name" => "Average",
+    "type" => "scatter",
+    "mode" => "lines+markers",
+    "marker" => ["color" => "green", "line" => ["color" => "green"]]];
+
+layout = [
+  "title" => "Genetic Algorithm Solution to Knapsack Problem",
+  "font" => [
+    "family" => "Arial, sans-serif;",
+    "size" => 12,
+    "color" => "#000"
+  ],
+  "xaxis" => ["title" => "Generation"],
+  "yaxis" => ["title" => "Utility"],
+  "showlegend" => true
+]
+
+Plotly.plot([p1, p2], ["layout" => layout, "filename" => "genetic-algorithm-knapsack", "fileopt" => "overwrite"])
 
 # GENETICALGORITHMS ---------------------------------------------------------------------------------------------------
 

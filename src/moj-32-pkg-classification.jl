@@ -114,6 +114,12 @@ true_negative_rate(ROC)
 #
 nfoldCV_stumps(labels[train], features[train,:], 5, 10)
 
+# KNN =================================================================================================================
+
+# https://github.com/johnmyleswhite/kNN.jl
+
+using kNN
+
 # SVM =================================================================================================================
 
 # Documentation on SVM package is at https://github.com/JuliaStats/SVM.jl.
