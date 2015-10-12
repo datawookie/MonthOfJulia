@@ -253,6 +253,23 @@ lowercase("AbCdE")
 ucfirst("abcde")
 lcfirst("AbCdE")
 
+# STRING COMPARISONS --------------------------------------------------------------------------------------------------
+
+# https://github.com/samuelcolvin/JellyFish.jl
+# https://github.com/sunlightlabs/sausagedog
+
+using JellyFish
+
+@show jaro_winkler("sausagedog", "sausageflog")
+@show hamming_distance("sausagedog", "sausageflog")
+@show levenshtein_distance("sausagedog", "sausageflog")
+
+@show metaphone("sausagedog")           # https://en.wikipedia.org/wiki/Metaphone
+@show soundex("sausagedog")             # https://en.wikipedia.org/wiki/Soundex
+
+@show match_rating_comparison("sausagedog", "sausageodg")
+@show match_rating_comparison("sausagedog", "sussageodg")
+
 # REGULAR EXPRESSIONS -------------------------------------------------------------------------------------------------
 
 # Regular expressions are denoted by a 'r' prefix.

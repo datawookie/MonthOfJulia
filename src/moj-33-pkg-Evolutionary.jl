@@ -182,7 +182,16 @@ model = runga(equalityga; initial_pop_size = 16)
 
 population(model)
 
-# POSTSCRIPT: A lengthy discussion of various applications of GA can be found here:
+# WALLACE =============================================================================================================
+
+# https://github.com/ChrisTimperley/Wallace.jl
+# http://www.christimperley.co.uk/Wallace.jl/
+
+using Wallace
+
+# POSTSCRIPT ==========================================================================================================
+
+# A lengthy discussion of various applications of GA can be found here:
 #
 # http://stackoverflow.com/questions/1538235/what-are-good-examples-of-genetic-algorithms-genetic-programming-solutions.
 #

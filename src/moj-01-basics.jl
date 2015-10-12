@@ -1,5 +1,7 @@
 # BASICS ==============================================================================================================
 
+versioninfo()
+
 # Make your life easier by keeping everything in a script. Julia scripts typically have a ".jl" suffix. You can
 # execute the contents of a script by using include() or require(), where the latter will only execute the script
 # once.

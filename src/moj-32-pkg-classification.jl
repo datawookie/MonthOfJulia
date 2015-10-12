@@ -120,6 +120,12 @@ nfoldCV_stumps(labels[train], features[train,:], 5, 10)
 
 using kNN
 
+# LIBSVM ==============================================================================================================
+
+# https://github.com/simonster/LIBSVM.jl
+
+using LIBSVM
+
 # SVM =================================================================================================================
 
 # Documentation on SVM package is at https://github.com/JuliaStats/SVM.jl.
@@ -153,6 +159,14 @@ countnz(predict(model, X[:,~train]) .== y[~train]) / sum(!train)
 
 using GradientBoost
 
+# NAIVEBAYES ==========================================================================================================
+
+using NaiveBayes
+
+# RANDOMFERNS =========================================================================================================
+
+using RandomFerns
+
 # XGBOOST =============================================================================================================
 
 # https://github.com/antinucleon/XGBoost.jl
@@ -180,6 +194,12 @@ ROC = roc(labels[!train], convert(Array{Int32,1}, predictions))
 precision(ROC)
 recall(ROC)
 
-# ENSEMBLE LEARNING ---------------------------------------------------------------------------------------------------
+# ENSEMBLE LEARNING ===================================================================================================
 
 # Facilities for using a heterogeneous ensemble of learning methods are provided by the Orchestra package.
+
+# LOSS ================================================================================================================
+
+# Functions for evaluating various loss metrics.
+
+using Loss

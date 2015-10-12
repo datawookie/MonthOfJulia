@@ -1,4 +1,30 @@
-# HTTP ================================================================================================================
+# FTP =================================================================================================================
+
+using FTPClient
+
+ftp_init()
+#
+# Connect to an anonymous FTP server that allows upload and download.
+#
+ftp = FTP(host = "speedtest.tele2.net", user = "anonymous", pswd = "hiya@gmail.com")
+
+readdir(ftp)
+
+binary(ftp)                                 # Change transfer mode to BINARY
+download(ftp, "1KB.zip", "local-1KB.zip")
+
+cd(ftp, "upload")
+ascii(ftp)                                  # Change transfer mode to ASCII
+upload(ftp, "papersize", open("/etc/papersize"))
+
+ftp_cleanup()
+close(ftp)
+
+# HTTP CLIENT =========================================================================================================
+
+# Other packages for HTTP methods:
+#
+# HTTPClient (https://github.com/JuliaWeb/HTTPClient.jl)
 
 # Following some of the examples in the documentation (https://github.com/JuliaWeb/Requests.jl).
 #
@@ -41,11 +67,19 @@ r4 = post("http://httpbin.org/post"; json = {"name" => "Claire", "gender" => 'F'
 
 # There is a selection of means for uploading a file via POST.
 
-# HTTPSERVER ==========================================================================================================
+# STREAMING -----------------------------------------------------------------------------------------------------------
+
+# HTTP SERVER =========================================================================================================
 
 using HttpServer
 
+using Mux
+
 # Check out http://iaindunning.com/blog/sudoku-as-a-service.html
+
+# YELP ================================================================================================================
+
+using Yelp
 
 # TWITTER =============================================================================================================
 
@@ -63,3 +97,7 @@ twitterauth(consumer_key, consumer_secret, oauth_token, oauth_secret)
 # THIS CURRENTLY DOES NOT WORK!!!
 
 get_mentions_timeline()
+
+# AWS =================================================================================================================
+
+using AWS

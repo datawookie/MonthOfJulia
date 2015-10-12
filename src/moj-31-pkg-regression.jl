@@ -1,3 +1,11 @@
+# REGRESSION ==========================================================================================================
+
+# https://github.com/lindahua/Regression.jl
+
+# Haven't had a look at this package yet, but it looks very promising.
+
+using Regression
+
 # GLM =================================================================================================================
 
 using GLM
@@ -149,6 +157,20 @@ path = glmnet(X, y, alpha = 0)
 # - constraints (upper and lower bounds on each predictor);
 # - weights (weight vector for samples).
 
+# LASSO ===============================================================================================================
+
+using Lasso
+
+# LARS ================================================================================================================
+
+# Least angle regression.
+
+using LARS
+
+# KNN =================================================================================================================
+
+using kNN
+
 # REGRESSION TREES ====================================================================================================
 
 using DecisionTree
@@ -168,6 +190,20 @@ predictions = apply_forest(model, features)
 
 nfoldCV_forest(labels, features, 1, 50, 10)
 
+# LOESS ===============================================================================================================
+
+using Loess
+
+# RANDOMFERNS =========================================================================================================
+
+using RandomFerns
+
+# NONLINEARREGRESSION =================================================================================================
+
+# Non-linear regression.
+
+using NLreg
+
 # REGTOOLS ============================================================================================================
 
 using RegTools
@@ -178,3 +214,9 @@ using RegTools
 #
 # - Regression (provides a variety of solvers);
 # - LinearLeastSquares.
+
+# LOSS ================================================================================================================
+
+# Functions for evaluating various loss metrics.
+
+using Loss
