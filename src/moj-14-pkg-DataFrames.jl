@@ -25,6 +25,7 @@ describe(people)                    # Analogous to summary() in R
 # Accessing columns and rows.
 #
 people[:age]
+people[:, [:name, :age]]
 people[2]
 people[:,2]
 people[1,:]

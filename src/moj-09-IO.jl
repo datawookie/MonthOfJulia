@@ -95,6 +95,16 @@ writecsv("abbreviated-passwd.csv", passwd[:,[1,6]])
 
 # FILE MANIPULATION ===================================================================================================
 
+# Home directory.
+#
+homedir()
+
+# Current working directory.
+#
+pwd()
+#
+# Can use cd() to change the working directory.
+
 # List of files in a directory.
 #
 readdir()

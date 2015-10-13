@@ -36,14 +36,23 @@ using Requests
 
 # Look up "Getting started with Julia Programming Language" on Amazon.
 #
+# https://www.googleapis.com/books/v1/volumes?q=isbn:178328479X
+#
 r1 = get("https://www.googleapis.com/books/v1/volumes"; query = {"q" => "isbn:178328479X"})
 
 r1.status
 r1.headers
-r1.data
 r1.finished
 
+typeof(r1.data)
+Requests.text(r1)                               # Text of JSON payload
+Requests.json(r1)["items"][1]["volumeInfo"]     # Parsed JSON
+
 r2 = get("https://maps.googleapis.com/maps/api/geocode/json"; query = {"address" => "Oxford University", "sensor" => "false"})
+
+Requests.json(r2)["results"][1]["geometry"]["location"]
+
+using DataFrames
 
 URL = "https://www.quandl.com/api/v1/datasets/EPI/8.csv"
 #
@@ -51,7 +60,22 @@ population = readtable(IOBuffer(get(URL).data), separator = ',', header = true);
 #
 names(population)
 #
-names!(population, [symbol(i) for i in ["Year", "Industrial", "Developing"]])
+names!(population, [symbol(i) for i in ["Year", "Industrial", "Developing"]]);
+#
+head(population)
+
+using Plotly
+
+data = [
+  [
+    "x" => map(string, population[:Year]),
+    "y" => population[:Industrial],
+    "type" => "scatter"
+  ]
+]
+Plotly.plot(data, ["filename" => "population-time-series", "fileopt" => "overwrite"])
+
+
 
 # POST ----------------------------------------------------------------------------------------------------------------
 
@@ -61,9 +85,11 @@ names!(population, [symbol(i) for i in ["Year", "Industrial", "Developing"]])
 #
 r3 = post("http://urls.api.twitter.com/1/urls/count.json"; query = {"url" => "http://julialang.org/"}, data = "Quite a few times!")
 
+Requests.json(r3)
+
 # Add JSON data payload.
 #
-r4 = post("http://httpbin.org/post"; json = {"name" => "Claire", "gender" => 'F'})
+r4 = post("http://httpbin.org/post"; json = {"name" => "Reginald", "gender" => 'M'})
 
 # There is a selection of means for uploading a file via POST.
 
@@ -94,9 +120,12 @@ oauth_secret = ENV["OAUTH_SECRET"];
 
 twitterauth(consumer_key, consumer_secret, oauth_token, oauth_secret)
 
-# THIS CURRENTLY DOES NOT WORK!!!
+mentions = get_mentions_timeline();
+mentions = DataFrame(mentions);
 
-get_mentions_timeline()
+names(mentions)
+
+retweets = DataFrame(get_retweets_of_me());
 
 # AWS =================================================================================================================
 

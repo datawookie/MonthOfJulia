@@ -130,6 +130,8 @@ using LIBSVM
 
 # Documentation on SVM package is at https://github.com/JuliaStats/SVM.jl.
 
+# This package does not appear to be supported in Julia v. 0.4. Rather use LIBSVM?
+
 using SVM
 
 # The SVM package expects samples in columns and features in rows...
