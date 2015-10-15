@@ -75,8 +75,6 @@ data = [
 ]
 Plotly.plot(data, ["filename" => "population-time-series", "fileopt" => "overwrite"])
 
-
-
 # POST ----------------------------------------------------------------------------------------------------------------
 
 # How many times has a URL been posted on Twitter?
