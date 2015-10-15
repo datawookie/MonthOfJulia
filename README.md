@@ -47,6 +47,7 @@ I trust that the intent will still be clear.
 - Day 32: [Classification](http://wp.me/p3pzmk-DF "Assigning classes to objects.")
 - Day 33: [Evolutionary Algorithms](http://wp.me/p3pzmk-uz "Crossover, Mutation and Elitism.")
 - Day 34: [Networking](http://wp.me/p3pzmk-ym "FTP, HTTP and the Twitter API.")
+- Day 35: [Mapping](http://wp.me/p3pzmk-E2 "Maps from OpenStreetMap.")
 
 ## Acknowledgements
 
