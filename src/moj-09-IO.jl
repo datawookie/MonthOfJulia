@@ -109,6 +109,10 @@ pwd()
 #
 readdir()
 
+# Path concatenation.
+#
+joinpath(homedir(), ".julia")
+
 # Moving and removing.
 #
 mv(filename, "renamed-temporary-file.txt")

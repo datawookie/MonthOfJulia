@@ -26,6 +26,8 @@ sqrt(9)
 div(5, 2)
 5 % 2
 
+ans                             # Retrieve previous result
+
 # GETTING HELP & INFORMATION ------------------------------------------------------------------------------------------
 
 help(sqrt)						# Or just hit '?' in the REPL
