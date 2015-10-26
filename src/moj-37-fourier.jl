@@ -4,54 +4,89 @@
 
 # http://docs.julialang.org/en/release-0.4/stdlib/math/
 
-# SIMPLE TRANSFORM ----------------------------------------------------------------------------------------------------
+using Color
+using Gadfly
 
-f = sin((0:127) * pi / 8) + rand(128);
-f -= mean(f)
+# FFT IN 1D -----------------------------------------------------------------------------------------------------------
+
+f = [abs(x) <= 1 ? 1 : 0 for x in -5:0.1:5];
+length(f)
+
+# f = sin((0:127) * pi / 8) + rand(128);
 
 F = fft(f);
 typeof(F)
-
-using Gadfly
+length(F)
+#
+# Re-arrange positive/negative frequencies.
+#
+F = fftshift(F);
 
 # Plot signal in the time domain.
 #
-plot(x = 0:127, y = f, Guide.xlabel("t [s]"), Guide.ylabel("f(t)", orientation = :vertical))
+plot(x = -5:0.1:5, y = f, Guide.xlabel("t [s]"), Guide.ylabel("f(t)", orientation = :vertical), Geom.line)
 
+# Plot amplitude spectrum.
+#
+plot(x = -5:0.1:5, y = abs(F), Geom.line,
+    Guide.xlabel("f [Hz]"), Guide.ylabel("Amplitude", orientation = :vertical))
+#
 # Plot power spectrum.
 #
-plot(x = (0:127) / 128, y = abs(F).^2, xintercept = [1/16], Geom.line,
-    Geom.vline(color = colorant"orange"),
-    Guide.xlabel("f [Hz]"), Guide.ylabel("Power", orientation = :vertical))
+plot(x = -5:0.1:5, y = 10 * log10(abs(F).^2), Geom.line,
+    Guide.xlabel("f [Hz]"), Guide.ylabel("Power [dB]", orientation = :vertical))
+#
+# Plot phase spectrum.
+#
+plot(x = -5:0.1:5, y = angle(F), Geom.line,
+    Guide.xlabel("f [Hz]"), Guide.ylabel("Phase", orientation = :vertical))
 
-G = fftshift(F);
+# DCT IN 1D -----------------------------------------------------------------------------------------------------------
 
-plot(x = ((1:128) - 65) / 128, y = abs(G).^2, xintercept = [1/16], Geom.line,
-    Geom.vline(color = colorant"orange"),
-    Guide.xlabel("f [Hz]"), Guide.ylabel("Power", orientation = :vertical))
+# Discrete Cosine Transform (DCT) implemented by dct().
 
-# 2D TRANSFORM --------------------------------------------------------------------------------------------------------
+# EXECUTION PLANS -----------------------------------------------------------------------------------------------------
 
-f = [sin(x * pi / 8) + cos(y * pi / 32) + rand() for x in 1:256, y in 1:256]
+# Generate plans for applying optimised FFT to specific input using plan_fft().
+
+# plan = plan_fft(f, 1, FFTW.MEASURE)
+# FFTW.forget_wisdom()
+# plan = plan_fft(f, 1, FFTW.ESTIMATE)
+
+# FFT IN 2D (IMAGE) ---------------------------------------------------------------------------------------------------
+
+using TestImages
+
+# 2D Fourier Transform of an image.
+#
+f = map(Float32, Images.raw(testimage("moonsurface")))
 f -= mean(f)
 
 F = fft(f);
-typeof(F)
+F = fftshift(F);
 
-spy(f[1:149,1:149], Scale.color_continuous(minvalue=-2, maxvalue=2))
+spy(10 * log10(abs(F)^2))
+spy(angle(F))
 
-plan = plan_fft(x)
+# FFT IN 2D (FUNCTION) ------------------------------------------------------------------------------------------------
 
-plan = plan_fft)x, 1, FFTW.MEASURE)
-
-FFTW.forget_wisdom()
-
-plan = plan_fft)x, 1, FFTW.ESTIMATE)
-
-dct()
-
-dct(x, [1, 3])
-
-# 3D FFT (various types).
+# 2D sinc() function.
 #
-FFTW.r2r(x, [FFTW.REDT00, FFTW.REDFT01, FFTW.RODFT10])
+f = [(r = sqrt(x^2 + y^2); sinc(r)) for x in -6:0.125:6, y in -6:0.125:6];
+
+typeof(f)
+size(f)
+
+spy(f)
+
+F = fft(f);
+typeof(F)
+F = fftshift(F);
+
+spy(abs(F), Guide.colorkey("Amplitude"))
+spy(10 * log10(abs(F)^2), Guide.colorkey("Power [dB]"))
+spy(angle(F) / pi, Guide.colorkey("Phase [π]"))
+
+# NFFT ================================================================================================================
+
+using NFFT

@@ -89,6 +89,12 @@ people
 mean(people[:age])
 mean(dropna(people[:age]))
 
+# FILE IO -------------------------------------------------------------------------------------------------------------
+
+# Read a DataFrame from a delimited file using readtable().
+
+# Write a DataFrame to a delimited file using writetable().
+
 # METAPROGRAMMING -----------------------------------------------------------------------------------------------------
 
 using DataFramesMeta

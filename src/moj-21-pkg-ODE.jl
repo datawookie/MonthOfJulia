@@ -42,7 +42,7 @@ a = 1;                                  # Resonant
 #
 # Solve using an adaptive scheme (so we don't need to specify time steps explicitly).
 #
-T, xv = ode23(oscillator, initial, [0.; 40]);
+T, xv = ode23(oscillator, initial, [0.; 40]; maxstep = 0.001);
 xv = hcat(xv...).';                     # Vector{Vector{Float}} -> Matrix{Float}
 
 plot(layer(x = T, y = xv[:,1], Geom.line(), Theme(default_color = colorant"black")),

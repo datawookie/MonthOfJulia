@@ -178,6 +178,16 @@ typeof(3+4im)
 typeof(3.0+4im)
 typeof(3//4)
 
+# MATHEMATICAL OPERATIONS ---------------------------------------------------------------------------------------------
+
+srand(5);
+
+# All of the "normal" operations are supported. These are some novel ones.
+
+# Clip array to maximum and minimum values.
+#
+clamp(rand(10), 0.1, 0.5)
+
 # BITWISE OPERATIONS --------------------------------------------------------------------------------------------------
 
 ~5						# NOT
