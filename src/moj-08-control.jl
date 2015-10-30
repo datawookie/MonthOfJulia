@@ -226,3 +226,12 @@ end
 type VerboseCustomException <: Exception
     txt::String
 end
+
+# PATTERN MATCHING ====================================================================================================
+
+# https://github.com/kmsquire/Match.jl
+# https://matchjl.readthedocs.org/en/latest/
+
+# The Match package provides a sophisticated interpretation of the switch construct.
+
+using Match

@@ -25,6 +25,7 @@ describe(people)                    # Analogous to summary() in R
 # Accessing columns and rows.
 #
 people[:age]
+people[:, [:name, :age]]
 people[2]
 people[:,2]
 people[1,:]
@@ -66,6 +67,8 @@ using DataArrays
 #
 x = @data([1, 2, 3, 4, NA, 6])
 
+# Removing columns: use delete!(df, colname) where colname specified as a symbol.
+
 # Deal with missing data by dropping it...
 #
 dropna(x)
@@ -85,6 +88,12 @@ people[:age][2] = NA;
 people
 mean(people[:age])
 mean(dropna(people[:age]))
+
+# FILE IO -------------------------------------------------------------------------------------------------------------
+
+# Read a DataFrame from a delimited file using readtable().
+
+# Write a DataFrame to a delimited file using writetable().
 
 # METAPROGRAMMING -----------------------------------------------------------------------------------------------------
 

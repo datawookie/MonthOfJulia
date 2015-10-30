@@ -50,6 +50,7 @@ I trust that the intent will still be clear.
 - Day 35: [Mapping](http://wp.me/p3pzmk-E2 "Maps from OpenStreetMap.")
 - Day 36: [Markdown](http://wp.me/p3pzmk-G6 "Formatting documents.")
 - Day 37: [Fourier Transform](http://wp.me/p3pzmk-HE "Flipping between the time and frequency domains.")
+- Day 38: [Imaging](http://wp.me/p3pzmk-G9 "Image processing.")
 
 ## Acknowledgements
 

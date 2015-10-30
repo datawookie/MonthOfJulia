@@ -61,6 +61,9 @@ open("/etc/passwd") do fid
     readlines(fid)
 end
 #
+# Use of eachline() is much more efficient if an operation is to be applied to each line in a file. It avoids the
+# burden of having to load every line of the file into memory at once.
+#
 open("/etc/passwd") do fid
 	for line in eachline(fid)
 		print("$line")
@@ -92,9 +95,23 @@ writecsv("abbreviated-passwd.csv", passwd[:,[1,6]])
 
 # FILE MANIPULATION ===================================================================================================
 
+# Home directory.
+#
+homedir()
+
+# Current working directory.
+#
+pwd()
+#
+# Can use cd() to change the working directory.
+
 # List of files in a directory.
 #
 readdir()
+
+# Path concatenation.
+#
+joinpath(homedir(), ".julia")
 
 # Moving and removing.
 #

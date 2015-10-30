@@ -42,7 +42,7 @@ a = 1;                                  # Resonant
 #
 # Solve using an adaptive scheme (so we don't need to specify time steps explicitly).
 #
-T, xv = ode23(oscillator, initial, [0.; 40]);
+T, xv = ode23(oscillator, initial, [0.; 40]; maxstep = 0.001);
 xv = hcat(xv...).';                     # Vector{Vector{Float}} -> Matrix{Float}
 
 plot(layer(x = T, y = xv[:,1], Geom.line(), Theme(default_color = colorant"black")),
@@ -82,8 +82,6 @@ plot(x = xv[:,1], y = xv[:,2], Geom.path(), Theme(default_color = colorant"red")
      Guide.xlabel("θ<sub>1</sub>"),
      Guide.ylabel("θ<sub>2</sub>"),
      Guide.title("Phase Space of a Double Pendulum"))
-
-
 
 # DASSL ===============================================================================================================
 

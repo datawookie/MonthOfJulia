@@ -44,9 +44,10 @@ queue = Queue(Any);
 #
 # Items are always added to the back of the queue.
 #
-enqueue!(queue, "First in.")
+enqueue!(queue, "First in.");
 for n in [2:4]; enqueue!(queue, n); end
 enqueue!(queue, "Last in.")
+length(queue)
 #
 front(queue)                        # Look at item at front of the queue
 back(queue)                         # Look at item at back of queue
@@ -82,14 +83,15 @@ cnt = counter(ASCIIString)
 
 push!(cnt, "dog")                   # Add 1 dog
 push!(cnt, "cat", 3)                # Add 3 cats
-push!(cnt, "cat")                   # Add another cat
+push!(cnt, "cat")                   # Add another cat (returns current count)
 push!(cnt, "mouse", 5)              # Add 5 mice
 
 cnt
 
 pop!(cnt, "cat")
 
-cnt["cat"]                          # How many cats do we have now?
+cnt["cat"]                          # How many cats do we have now? All gone.
+
 cnt["mouse"]                        # But we still have a handful of mice.
 
 # TRIE ----------------------------------------------------------------------------------------------------------------

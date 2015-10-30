@@ -178,6 +178,16 @@ typeof(3+4im)
 typeof(3.0+4im)
 typeof(3//4)
 
+# MATHEMATICAL OPERATIONS ---------------------------------------------------------------------------------------------
+
+srand(5);
+
+# All of the "normal" operations are supported. These are some novel ones.
+
+# Clip array to maximum and minimum values.
+#
+clamp(rand(10), 0.1, 0.5)
+
 # BITWISE OPERATIONS --------------------------------------------------------------------------------------------------
 
 ~5						# NOT
@@ -253,7 +263,26 @@ lowercase("AbCdE")
 ucfirst("abcde")
 lcfirst("AbCdE")
 
-# Regular expressions.
+# STRING COMPARISONS --------------------------------------------------------------------------------------------------
+
+# https://github.com/samuelcolvin/JellyFish.jl
+# https://github.com/sunlightlabs/sausagedog
+
+using JellyFish
+
+@show jaro_winkler("sausagedog", "sausageflog")
+@show hamming_distance("sausagedog", "sausageflog")
+@show levenshtein_distance("sausagedog", "sausageflog")
+
+@show metaphone("sausagedog")           # https://en.wikipedia.org/wiki/Metaphone
+@show soundex("sausagedog")             # https://en.wikipedia.org/wiki/Soundex
+
+@show match_rating_comparison("sausagedog", "sausageodg")
+@show match_rating_comparison("sausagedog", "sussageodg")
+
+# REGULAR EXPRESSIONS -------------------------------------------------------------------------------------------------
+
+# Regular expressions are denoted by a 'r' prefix.
 #
 r1 = r"s[^ ]"
 #

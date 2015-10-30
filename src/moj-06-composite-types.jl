@@ -28,7 +28,7 @@ g3 = GeographicLocation(-30, 30)
 
 # List and access fields of composite type.
 #
-names(g1)
+fieldnames(g1)
 g1.latitude
 g1.longitude
 g1.latitude = -25                       # Attributes are mutable
