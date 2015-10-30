@@ -20,6 +20,14 @@ y = [3, "foo", 'a']                 # Elements can be of mixed type
 typeof(y)                           # Type of the Array itself
 eltype(y)                           # Type of the elements in the Array
 #
+Array{ASCIIString, 1}(["dog", "cat", "mouse"])
+Array{Float32, 1}([1, 2, 3])
+#
+Array(Int32, 2, 3)                  # Uninitialised Array with specified shape
+#
+[1, 2, 3]                           # With commas -> 1D Array
+[1 2 3]                             # Without commas -> 2D Array
+#
 # Indexing into an array.
 #
 x[1]                                # First element
@@ -33,6 +41,7 @@ setindex!(x, [0, 4, 8], [2:4])
 # Unpacking arrays.
 #
 a, b, c = x[2:4]
+a, b = x                            # Only unpacks first two elements
 
 # Array functions.
 #
@@ -82,6 +91,11 @@ sort(x, by = abs, rev = true)           # Sort using absolute value in reverse o
 # You can specify the sort algorithm.
 #
 # You can also sort in place using sort!().
+
+# Comparisons.
+#
+[1, 2, 3] == [1, 2, 3]                  # Object comparison
+[1, 2, 3] .== [1, 3, 2]                 # Element comparison
 
 # Quantifiers.
 #
@@ -141,13 +155,15 @@ ones(3, 2)
 zeros(5)
 trues(3)
 falses(3)
-eye(3)                      # Identity matrix (specified size)
-zeros(3, 3) + I                 # I is identity matrix which scales to be same size as other argument.
+eye(3)                                  # Identity matrix (specified size)
+zeros(3, 3) + I                         # I is identity matrix which scales to be same size as other argument.
 SymTridiagonal(ones(5), -ones(4))       # Something a little more exotic.
 fill("xxx", 3)
 fill(5, (3, 2))
 #
-[i^2 for i in 1:10]             # Array from a comprehension.
+# Comprehensions (which can also be used to generate a Dict too).
+#
+[i^2 for i in 1:10]
 [1//(i+j) for i = 1:4, j = 1:4]
 
 # Identity matrix.
@@ -199,7 +215,7 @@ cat(2, M, N)
 # Characteristics of Tuples:
 #
 #   - elements are indexable;
-#   - elements are immutable.
+#   - elements are immutable (and so more efficient!).
 
 # Tuple assignment.
 #
@@ -207,6 +223,11 @@ a, b, x, text = 1, 2, 3.5, "Hello"
 a, b, x, text = (1, 2, 3.5, "Hello")
 #
 a, b = b, a                         # I never get tired of this!
+
+# Type of a Tuple characterises type of each element in the Tuple (each of which may be different). Compare to type
+# of an Array which is the common type used to store all elements of the Array.
+#
+typeof((1, 2, 3.5, "Hello"))
 
 # Type annotation and assertion.
 #
