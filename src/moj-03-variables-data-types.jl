@@ -55,8 +55,8 @@ typeof(x)
 # The data types of used in the assignments above were inferred implicity by the interpreter. It is also possible to
 # explicitly specify the data type.
 #
-int32(8)
-float64(8)
+Int32(8)
+Float64(8)
 
 typeof(Int64)						# Data types are also types. Tautology? No doubt.
 
