@@ -390,7 +390,7 @@ vanday + Dates.Year(1) + Dates.Month(3) + Dates.Day(2)
 
 # Ranges.
 #
-[Date(2015,1,1):Day(7):Date(2016,1,1)]	# One week intervals
+collect(Date(2015,1,1):Day(7):Date(2016,1,1))	# One week intervals
 
 # Timing execution.
 #
