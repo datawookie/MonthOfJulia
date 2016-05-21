@@ -33,6 +33,7 @@ function rectangle(x, y = x; color = "black", θ = pi / 2)
 end
 rectangle(2, 3)                                 # Only positional arguments.
 rectangle(2, 3; color = "red")                  # Positional and keyword arguments.
+rectangle(2, 3, color = "red")                  # Can use , rather ;
 rectangle(2, 3; θ = pi / 3, color = "red")
 
 # Operators as functions with arguments in infix notation (https://en.wikipedia.org/wiki/Infix_notation).
