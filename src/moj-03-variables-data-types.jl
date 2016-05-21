@@ -64,13 +64,13 @@ typeof(Int64)						# Data types are also types. Tautology? No doubt.
 #
 isa(8, Int64)
 isa(8, Number)
-isa(8, String)
+isa(8, AbstractString)
 
 # The type hierarchy can be reconstructed using super() and subtypes().
 #
 super(Float64)
 super(super(Float64))
-subtypes(FloatingPoint)
+subtypes(AbstractFloat)
 #
 super(Int64)
 super(Signed)
@@ -80,11 +80,11 @@ Int64 <: Signed <: Integer <: Real <: Number
 
 # Subtype relationships can be queried.
 #
-Float64 <: FloatingPoint
+Float64 <: AbstractFloat
 Float64 <: Integer
 Int64 <: Int						# Int64 is a subtype of Int
 ASCIIString <: Int					# ASCIIString is not a subtype of Int
-issubtype(Float64, FloatingPoint)
+issubtype(Float64, AbstractFloat)
 
 # ANNOTATIONS & CONVERSIONS -------------------------------------------------------------------------------------------
 
@@ -101,12 +101,12 @@ issubtype(Float64, FloatingPoint)
 # Type conversion.
 #
 convert(Float64, 3)
-float64(3)
+Float64(3)
 #
 # Whereas convert() will check for loss of precision, converting with a type name will not.
 #
-convert(In64, 3.5)
-int64(3.5)
+convert(Int64, 3.5)
+Int64(3.5)
 
 # Converting values to a common type.
 #
