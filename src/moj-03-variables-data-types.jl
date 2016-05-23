@@ -408,7 +408,7 @@ lucky = "Not so very lucky!"			# ... but you can't change its type.
 
 # A Union is a single alias for multiple types.
 
-Numeric = Union(Int64, Float64)
+Numeric = Union{Int64, Float64}
 #
 4::Numeric					# Both integers...
 3.5::Numeric					# ... and floats are Numeric.
