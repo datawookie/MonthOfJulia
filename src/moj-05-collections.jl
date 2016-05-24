@@ -21,7 +21,7 @@ typeof(y)                           # Type of the Array itself
 eltype(y)                           # Type of the elements in the Array
 #
 Array{ASCIIString, 1}(["dog", "cat", "mouse"])
-Array{Float32, 1}([1, 2, 3])
+Array{Float32, 1}([1, 2, 3])        # Conver the integers to float32
 #
 Array(Int32, 2, 3)                  # Uninitialised Array with specified shape
 #
@@ -36,7 +36,7 @@ x[end]                              # Last element
 x[end-1]                            # Penultimate element
 x[2:4]                              # Slicing
 x[2:4] = [1, 5, 9]                  # Slicing with assignment
-setindex!(x, [0, 4, 8], [2:4])
+setindex!(x, [0, 4, 8], 2:4)
 
 # Unpacking arrays.
 #
@@ -60,10 +60,10 @@ range(0, 0.5, 11)                   # FloatRange <: FloatRange
 0:10                                # UnitRange <: FloatRange
 typeof(0:10)
 #
-[range(0, 0.5, 11)]                 # Range interpreted into an array
-[0:0.5:5]
-[0:10]
-typeof([0:10])
+collect(range(0, 0.5, 11))                 # Range interpreted into an array
+collect(0:0.5:5)
+collect(0:10)
+typeof(collect(0:10)
 
 # Searching.
 #
@@ -166,10 +166,6 @@ fill(5, (3, 2))
 [i^2 for i in 1:10]
 [1//(i+j) for i = 1:4, j = 1:4]
 
-# Identity matrix.
-#
-eye(4)
-
 # Random matrices.
 #
 rand(4, 4)
@@ -232,7 +228,7 @@ typeof((1, 2, 3.5, "Hello"))
 # Type annotation and assertion.
 #
 (1, "zap!")::(Int64, String)
-(1, "zap!")::(Int64, Real)
+(1, "zap!")::(Int64, Real)      # TypeError
 
 # Tuple types enumerate the types of each element in the tuple.
 #
@@ -272,18 +268,18 @@ a, b = fibtuple[4:end]
 
 # The Dict type stores (key, value) tuples.
 
-# Typed dictionaries (where all keys have same type) are created with [].
+# Typed dictionaries (where all keys have same type) are created with Dict().
 #
-ages = ["Andrew" => 43, "Claire" => 35]
+ages = Dict("Andrew" => 43, "Claire" => 35)
 
-# Dynamic dictionaries (with keys of various types) are created with {}. These are typically less efficient than typed
+# Dynamic dictionaries (with keys of various types) are also created with Dict(). These are typically less efficient than typed
 # dictionaries.
 #
-stuff = {"number" => 43, 1 => "zap!", 2.5 => 'x'}
+stuff = Dict("number" => 43, 1 => "zap!", 2.5 => 'x')
 
 # Symbol dictionaries.
 #
-[:andrew => 43, :claire => 35]
+Dict(:andrew => 43, :claire => 35)
 
 # Retrieving values.
 #
@@ -295,7 +291,7 @@ pop!(ages, "Patrick")
 
 # Merging.
 #
-merge(ages, {"Matilda" => 13})              # There's also a merge!().
+merge(ages, Dict("Matilda" => 13))              # There's also a merge!().
 
 # Iterating over a Dict.
 #
@@ -313,8 +309,8 @@ values(ages)
 
 # Checking for key/value pairs.
 #
-in(("Andrew", 43), ages)
-("Andrew", 43) in ages
+in(Pair("Andrew", 43), ages)
+Pair("Andrew", 43) in ages
 
 # Removing keys.
 #
@@ -345,11 +341,10 @@ hash("foo!")
 
 # Duplicates are eliminated.
 #
-Set({1, 3, 5, 3, 9, 3, 17})
-Set(1, 2, 2, 2, 3)
+Set([1, 3, 5, 3, 9, 3, 17])
 
 S1 = Set([1, 2, 3, 4, 5])           # Set{Int64}
-S2 = Set({3, 4, 5, 6, 7})           # Set{Any}
+S2 = Set(Any[3, 4, 5, 6, 7])           # Set{Any}
 
 # Set operations.
 #
@@ -360,8 +355,8 @@ setdiff(S2, S1)
 setdiff!(S2, 6)
 symdiff(S1, S2)                     # The same as symdiff(S2, S1).
 #
-issubset(Set({2, 3, 4}), S1)
-⊆([2, 3], [1:4])
+issubset(Set([2, 3, 4]), S1)
+⊆([2, 3], 1:4)
 
 # Adding elements.
 #
@@ -390,7 +385,7 @@ length([1, 2, 3])
 
 in(2, [1:3])
 
-eltype([3:5])
+eltype(3:5)
 
 indexin([1, 3, 5, 7], rand(1:10, 5))            # See also findin().
 
