@@ -21,7 +21,7 @@ typeof(y)                           # Type of the Array itself
 eltype(y)                           # Type of the elements in the Array
 #
 Array{ASCIIString, 1}(["dog", "cat", "mouse"])
-Array{Float32, 1}([1, 2, 3])        # Conver the integers to float32
+Array{Float32, 1}([1, 2, 3])        # Convert the integers to float32
 #
 Array(Int32, 2, 3)                  # Uninitialised Array with specified shape
 #
@@ -60,7 +60,7 @@ range(0, 0.5, 11)                   # FloatRange <: FloatRange
 0:10                                # UnitRange <: FloatRange
 typeof(0:10)
 #
-collect(range(0, 0.5, 11))                 # Range interpreted into an array
+collect(range(0, 0.5, 11))          # Range interpreted into an array
 collect(0:0.5:5)
 collect(0:10)
 typeof(collect(0:10)
@@ -86,7 +86,7 @@ count(isprime, x)
 # Sorting.
 #
 sort(x)
-sort(x, by = abs, rev = true)           # Sort using absolute value in reverse order.
+sort(x, by = abs, rev = true)       # Sort using absolute value in reverse order.
 #
 # You can specify the sort algorithm.
 #
@@ -94,8 +94,8 @@ sort(x, by = abs, rev = true)           # Sort using absolute value in reverse o
 
 # Comparisons.
 #
-[1, 2, 3] == [1, 2, 3]                  # Object comparison
-[1, 2, 3] .== [1, 3, 2]                 # Element comparison
+[1, 2, 3] == [1, 2, 3]              # Object comparison
+[1, 2, 3] .== [1, 3, 2]             # Element comparison
 
 # Quantifiers.
 #
@@ -285,13 +285,13 @@ Dict(:andrew => 43, :claire => 35)
 #
 ages["Andrew"]                      # This can also be used for assignment.
 ages["Patrick"]                     # This will generate an error because the key is not defined.
-get(ages, "Patrick", 23)                # Default value if the key is not defined.
-get!(ages, "Patrick", 23)               # Default value and modify original dictionary.
+get(ages, "Patrick", 23)            # Default value if the key is not defined.
+get!(ages, "Patrick", 23)           # Default value and modify original dictionary.
 pop!(ages, "Patrick")
 
 # Merging.
 #
-merge(ages, Dict("Matilda" => 13))              # There's also a merge!().
+merge(ages, Dict("Matilda" => 13))  # There's also a merge!().
 
 # Iterating over a Dict.
 #
@@ -301,7 +301,7 @@ end
 
 # Lists of keys and values.
 #
-keys(ages)                      # Returns an iterator over the keys.
+keys(ages)                          # Returns an iterator over the keys.
 "Andrew" in keys(ages)
 haskey(ages, "Claire")
 #
@@ -318,11 +318,11 @@ delete!(ages, "Andrew")
 
 # Constructing dictionaries.
 #
-Dict()                          # Empty dictionary with key/value of arbitrary type.
-Dict{String, Float64}()                 # Empty dictionary with key/value of specific type.
+Dict()                                          # Empty dictionary with key/value of arbitrary type.
+Dict{String, Float64}()                         # Empty dictionary with key/value of specific type.
 Dict(["Andrew", "Claire"], [43, 35])            # Zip creation (old).
 Dict(zip(["Andrew", "Claire"], [43, 35]))       # Zip creation (new).
-[i => i^2 for i = 1:10]                 # Note that the result is unordered.
+[i => i^2 for i = 1:10]                         # Note that the result is unordered.
 
 # Dictionaries use a hashing function to derive unique values from keys.
 #
@@ -343,8 +343,8 @@ hash("foo!")
 #
 Set([1, 3, 5, 3, 9, 3, 17])
 
-S1 = Set([1, 2, 3, 4, 5])           # Set{Int64}
-S2 = Set(Any[3, 4, 5, 6, 7])           # Set{Any}
+S1 = Set([1, 2, 3, 4, 5])               # Set{Int64}
+S2 = Set(Any[3, 4, 5, 6, 7])            # Set{Any}
 
 # Set operations.
 #
@@ -353,14 +353,14 @@ union!(S1, [13])
 intersect(S1, S2)
 setdiff(S2, S1)
 setdiff!(S2, 6)
-symdiff(S1, S2)                     # The same as symdiff(S2, S1).
+symdiff(S1, S2)                         # The same as symdiff(S2, S1).
 #
 issubset(Set([2, 3, 4]), S1)
 ⊆([2, 3], 1:4)
 
 # Adding elements.
 #
-push!(S1, 19)                       # The ! indicates that the first argument is modified.
+push!(S1, 19)                           # The ! indicates that the first argument is modified.
 
 # Testing for membership. This operation is independent of the size of the set.
 #
@@ -369,8 +369,8 @@ in(19, S1)
 
 # Constructing sets.
 #
-Set()                               # Empty set of arbitrary type.
-Set{Int64}()                        # Empty set of specific type.
+Set()                                   # Empty set of arbitrary type.
+Set{Int64}()                            # Empty set of specific type.
 
 # OPERATIONS ==========================================================================================================
 
@@ -387,7 +387,7 @@ in(2, [1:3])
 
 eltype(3:5)
 
-indexin([1, 3, 5, 7], rand(1:10, 5))            # See also findin().
+indexin([1, 3, 5, 7], rand(1:10, 5))    # See also findin().
 
 unique([1, 2, 2, 2, 3])
 
