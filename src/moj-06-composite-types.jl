@@ -23,7 +23,7 @@ g2 = typeof(g1)(5, 25, 165)             # Create another object of the same type
 # Define another constructor.
 #
 GeographicLocation(latitude::Real, longitude::Real) = GeographicLocation(latitude, longitude, 0)
-# 
+#
 g3 = GeographicLocation(-30, 30)
 
 # List and access fields of composite type.
@@ -40,8 +40,8 @@ locations = [g1, g2, g3]
 # Defining an immutable type. Computationally these are more efficient because the code is easier to optimise.
 #
 immutable PersonData
-    firstName::String
-    lastName::String
+    firstName::AbstractString
+    lastName::AbstractString
     idNumber::BigInt
 end
 
@@ -121,10 +121,10 @@ abstract Document
 # efficient.
 #
 type JournalArticle <: Document
-    author::Array{String, 1}
-    title::String
+    author::Array{AbstractString, 1}
+    title::AbstractString
     DOI::ASCIIString
-    journal::String
+    journal::AbstractString
     year::Unsigned
     volume::Unsigned
     number::Unsigned
@@ -155,9 +155,9 @@ networks = JournalArticle(["István A. Kovács", "Albert-László Barabási"], "
 # instantiate a new object.
 #
 type Book <: Document
-    author::Array{String, 1}
-    title::String
-    publisher::String
+    author::Array{AbstractString, 1}
+    title::AbstractString
+    publisher::AbstractString
     year::Int
     #
     # Inner constructor
@@ -174,7 +174,7 @@ end
 
 # Create an additional "outer" constructor which accepts a single author name.
 #
-Book(author::String, title::String, publisher::String, year::Int64) = Book([author], title, publisher, year)
+Book(author::AbstractString, title::AbstractString, publisher::AbstractString, year::Int64) = Book([author], title, publisher, year)
 
 # Create an instance of Book.
 #
@@ -184,10 +184,10 @@ Book("Unknown", "Unknown", "Unknown", -57)
 # Methods for citations.
 #
 function citation(doc::JournalArticle)
-    @sprintf("%s, '%s', %s, %d.", join([doc.author], ", "), doc.title, doc.journal, doc.year)
+    @sprintf("%s, '%s', %s, %d.", join(collect(doc.author), ", "), doc.title, doc.journal, doc.year)
 end
 function citation(doc::Book)
-    @sprintf("'%s' by %s (%s, %d)", doc.title, join([doc.author], ", "), doc.publisher, doc.year)
+    @sprintf("'%s' by %s (%s, %d)", doc.title, join(collect(doc.author), ", "), doc.publisher, doc.year)
 end
 
 # Type display.
@@ -206,8 +206,10 @@ string(doc::Document) = citation(doc)
 # The Book and JournalArticle types have many commonalities and we might want to define functions that work on
 # both types.
 #
-DocumentUnion = Union(Book, JournalArticle)
+DocumentUnion = Union{Book, JournalArticle}
 
 function authors(doc::DocumentUnion)
-    join([doc.author], ", ")
+    join(collect(doc.author), ", ")
 end
+authors(book)
+authors(sunspots)
