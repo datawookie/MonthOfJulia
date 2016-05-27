@@ -22,13 +22,13 @@ g(2)
 
 # map(F, collection) applies function F to every element of collection. F is often an anonymous function.
 #
-map(x -> x^2, [1:5])                # Univariate function
+map(x -> x^2, 1:5)                  # Univariate function
 map(/, [16, 9, 4], [8, 3, 2])       # Multivariate function (actually operator!)
 #
 # There's another way to write these using a do block, which is another way to create an anonymous function but allows
 # you to make the contents of the function more complicated.
 #
-map([-3:3]) do x
+map(-3:3) do x
     x^3
 end
 
@@ -40,7 +40,7 @@ end
 
 # filter(F, collection) returns only those elements of collection for which function F returns true.
 #
-filter(n -> n %3 == 0, [0:10])
+filter(n -> n % 3 == 0, [0:10])
 
 filter(isprime, [1:100])                # Find values (not indices!) which are prime.
 #
@@ -72,13 +72,14 @@ mapreduce(x -> x^2, +, [1:5])               # See also mapfoldl() and mapfoldr()
 # zip() is not a high-level function. But it is handy for using with other functional programming constructs. zip()
 # takes collections as arguments and then combines corresponding elements from those collections into tuples.
 #
+collect(zip(1:4, 5:8))
 map(x -> sum(x), zip(1:4, 5:8))
 
 # LIST COMPREHENSION --------------------------------------------------------------------------------------------------
 
 # A list comprehension populates an array via an implicit loop.
 #
-[x^3 - 1 for x in [1:4]]
+[x^3 - 1 for x in 1:4]
 #
 # This will create a 3x3 array. By default the type of the array would be Float, but we can force it to be an integer.
 #
