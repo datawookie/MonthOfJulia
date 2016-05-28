@@ -125,13 +125,13 @@ rm("abbreviated-passwd.csv")
 # EXAMPLE USER TYPE ===================================================================================================
 
 type UserDetails
-	username::String
-	password::String
+	username::AbstractString
+	password::AbstractString
 	UID::Unsigned
 	GID::Unsigned
-	comment::String
-	homedir::String
-	shell::String
+	comment::AbstractString
+	homedir::AbstractString
+	shell::AbstractString
 end
 
 # Note the use of the ... operator to "splat" the array into the constructor arguments.
