@@ -74,13 +74,13 @@ factorial(10)
 
 # A for loop can iterate over the elements of any collection. You can use "=" in place of "in".
 #
-for n in [1:10]
+for n in 1:10
     println("number $n.")
 end
 
 # Note that there is a distinction between the following two code fragments:
 #
-#   for n in [1:10]
+#   for n in collect(1:10)
 #   for n in 1:10
 #
 # The first allocates an array while the second uses a Range object. Use the second because it's more efficient.
@@ -100,7 +100,7 @@ end
 
 # Iterating over a dictionary.
 #
-for (key, value) in {"a" => 1, "b" => 2, "c" => 7}
+for (key, value) in Dict("a" => 1, "b" => 2, "c" => 7)
     println("$key maps to $value")
 end
 
@@ -200,13 +200,13 @@ divide(1, 0)
 #
 try
     divide(1, 0)
-catch E
-    if isa(E, DivideError)
+catch e
+    if isa(e, DivideError)
         println("You shouldn't even THINK about dividing by zero!")
     else
         println("Something else went wrong...")
     end
-    showerror(STDOUT, E)
+    showerror(STDOUT, e)
 finally
     println("This code will always run, exception or not!")
 end
