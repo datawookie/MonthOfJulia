@@ -111,7 +111,7 @@ eval(E1)                            # ... and this, of course, affects the resul
 
 # We can also build more complex expressions.
 #
-Expr(:call, :-, E, 5)
+Expr(:call, :-, E1, 5)
 
 # What about manipulating a function?
 #
@@ -155,7 +155,7 @@ macro number(T)
     end
 end
 @number(Float64)
-@number(Int64
+@number(Int64)
 
 # Useful builtin macros:
 #
