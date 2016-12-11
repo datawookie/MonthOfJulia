@@ -65,6 +65,7 @@ fib(5)
 #
 # And a factorial operator (well, close enough to the correct notation!)
 #
+import Base:!
 !(n) = n < 2 ? 1 : n * !(n-1)
 !10
 # Compare with builtin
@@ -137,8 +138,8 @@ factorial(-1)
 #
 # All exceptions are derived from the Exception type.
 #
-super(DomainError)
-super(ArgumentError)
+supertype(DomainError)
+supertype(ArgumentError)
 
 # Raise exceptions with throw().
 #
