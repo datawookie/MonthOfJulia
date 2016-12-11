@@ -20,7 +20,7 @@ y = [3, "foo", 'a']                 # Elements can be of mixed type
 typeof(y)                           # Type of the Array itself
 eltype(y)                           # Type of the elements in the Array
 #
-Array{ASCIIString, 1}(["dog", "cat", "mouse"])
+Array{String, 1}(["dog", "cat", "mouse"])
 Array{Float32, 1}([1, 2, 3])        # Convert the integers to float32
 #
 Array(Int32, 2, 3)                  # Uninitialised Array with specified shape
@@ -63,7 +63,7 @@ typeof(0:10)
 collect(range(0, 0.5, 11))          # Range interpreted into an array
 collect(0:0.5:5)
 collect(0:10)
-typeof(collect(0:10)
+typeof(collect(0:10))
 
 # Searching.
 #
@@ -77,6 +77,7 @@ find([0, 1, 0, 5, 0, 1, 0, true])   # Find indices of all non-zero elements
 find(isodd, x)                      # Find indices of all odd elements.
 #
 findnext(x, 1, 3)
+using Primes                        # Run Pkg.add("Primes") to install this Primes
 findnext(isprime, x, 4)             # Find next prime element, starting at index 4.
 
 # Counting.
@@ -227,8 +228,8 @@ typeof((1, 2, 3.5, "Hello"))
 
 # Type annotation and assertion.
 #
-(1, "zap!")::(Int64, String)
-(1, "zap!")::(Int64, Real)      # TypeError
+(1, "zap!")::Tuple{Int64, String}
+(1, "zap!")::Tuple{Int64, Real}      # TypeError
 
 # Tuple types enumerate the types of each element in the tuple.
 #
