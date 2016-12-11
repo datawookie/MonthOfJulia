@@ -40,9 +40,10 @@ end
 
 # filter(F, collection) returns only those elements of collection for which function F returns true.
 #
-filter(n -> n % 3 == 0, [0:10])
+filter(n -> n % 3 == 0, 0:10)
 
-filter(isprime, [1:100])                # Find values (not indices!) which are prime.
+import Primes: isprime
+filter(isprime, 1:100)                # Find values (not indices!) which are prime.
 #
 # filter!() will modify its argument in place, applying the filter.
 
@@ -64,7 +65,7 @@ reduce(max, [1, 2, 3])
 
 # Map and Reduce.
 #
-mapreduce(x -> x^2, +, [1:5])               # See also mapfoldl() and mapfoldr().
+mapreduce(x -> x^2, +, 1:5)               # See also mapfoldl() and mapfoldr().
 (((1^2 + 2^2) + 3^2) + 4^2) + 5^2
 
 # ZIP -----------------------------------------------------------------------------------------------------------------
@@ -84,4 +85,3 @@ map(x -> sum(x), zip(1:4, 5:8))
 # This will create a 3x3 array. By default the type of the array would be Float, but we can force it to be an integer.
 #
 Int64[x / y for x in [16, 8, 4], y in [4, 2, 1]]
-
