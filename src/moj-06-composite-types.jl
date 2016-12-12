@@ -123,8 +123,8 @@ abstract Document
 type JournalArticle <: Document
     author::Array{AbstractString, 1}
     title::AbstractString
-    DOI::ASCIIString
-    journal::AbstractString
+    DOI::String
+    journal::String
     year::Unsigned
     volume::Unsigned
     number::Unsigned
@@ -200,7 +200,6 @@ book                        # ... replaced by a "pretty" look.
 
 # String representation. This is analogous to __str__ in Python.
 #
-import Base.string
 string(doc::Document) = citation(doc)
 
 # The Book and JournalArticle types have many commonalities and we might want to define functions that work on

@@ -44,6 +44,8 @@ rectangle(2, 3; θ = pi / 3, color = "red")
 # Examples from J. Bezanson, A. Edelman, S. Karpinski, and V. B. Shah, “Julia: A Fresh Approach to Numerical Computing,”
 # arXiv, vol. 1411.1607v, 2014.
 #
+import Base.*
+
 *(a::Number, g::Function)= x->a*g(x)            # Scale output
 *(f::Function, t::Number) = x->f(t*x)           # Scale argument
 *(f::Function, g::Function)= x->f(g(x))         # Function composition
@@ -80,8 +82,8 @@ x = [3, 4]
 # Interesting application of the splat.
 #
 [rand(2,2) for n in 1:5]                        # A 5-element 1D array of 2x2 arrays.
-[[rand(2,2) for n in 1:5]...]                   # A 10x2 array.
-[[[rand(2,2) for n in 1:5]...]...]              # A 20-element 1D array.
+[[rand(2,2) for n in 1:5]...]                   # No difference.
+[[[rand(2,2) for n in 1:5]...]...]              # No difference.
 
 # MULTIPLE DISPATCH ---------------------------------------------------------------------------------------------------
 
@@ -98,7 +100,7 @@ x = [3, 4]
 # This feature is known as "multiple dispatch".
 
 # n.method(x, y)                - Object Oriented languages
-# method(n, x, y)               - Julia 
+# method(n, x, y)               - Julia
 #
 # Traditional Object Oriented programming languages implement single dispatch where method calls are attached to a
 # particular object (n in the examples above), which is then in some sense "special". Julia's multiple dispatch selects
@@ -129,10 +131,10 @@ divide(6, 4)
 divide(3.5, 2.0)
 
 # Now we can define a new method for the same function (effectively "overloading" the function) specialised for
-# FloatingPoint types. Effectively this new function acts like a filter: if there is no function defined for a
+# AbstractFloat types. Effectively this new function acts like a filter: if there is no function defined for a
 # particular combination of types then the generic function is used.
 #
-function divide(x::FloatingPoint, y::FloatingPoint)
+function divide(x::AbstractFloat, y::AbstractFloat)
     x / y
 end
 #
@@ -177,7 +179,7 @@ sum(["Hello", "World!"])                            # Functions that depend on "
 #
 4 * "xxx"                                           # Doesn't work.
 #
-function *(n::Unsigned, txt::String)
+function *(n::Signed, txt::String)
     txt^n
 end
 4 * "xxx"

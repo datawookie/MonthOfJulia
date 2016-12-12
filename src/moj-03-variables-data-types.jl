@@ -103,10 +103,10 @@ issubtype(Float64, AbstractFloat)
 convert(Float64, 3)
 Float64(3)
 #
-# Whereas convert() will check for loss of precision, converting with a type name will not.
+# convert() will check for loss of precision.
 #
-convert(Int64, 3.5)
-Int64(3.5)
+convert(Int64, 3.5)	                                # Will generate InexactError.
+Int64(3.5)					        # Will generate InexactError too.
 
 # Converting values to a common type.
 #
@@ -225,7 +225,7 @@ typeof(s2)
 
 # Integer code for a character.
 #
-int('a')
+Int('a')
 #
 # Integer arithmetic works on characters.
 #
@@ -342,9 +342,7 @@ end
 
 # More information at https://en.wikibooks.org/wiki/Introducing_Julia/Working_with_dates_and_times.
 
-using Dates
-
-vandag = today()			# Today's date			-> Date class
+vandag = Dates.today()			# Today's date			-> Date class
 nou = now()				# Now! (date and time)		-> DateTime class
 
 time()					# UNIX time, which can be formatted with strftime()
@@ -354,7 +352,7 @@ time()					# UNIX time, which can be formatted with strftime()
 Dates.Date("2015-08-17", "yyyy-mm-dd")
 Dates.DateTime("2015-08=17 12,23]59", "yyyy-mm=dd HH,MM]SS")
 #
-# And formatting to a string. 
+# And formatting to a string.
 #
 Dates.format(nou, "yy/mm/dd HH:MM:SS.ss")
 #
@@ -363,19 +361,19 @@ Dates.format(nou, "yy/mm/dd HH:MM:SS.ss")
 fmt = Dates.DateFormat("yy/mm/dd HH:MM:SS.ss");
 Dates.format(nou, fmt)
 
-year(vandag)
-month(vandag)
-day(vandag)
+Dates.year(vandag)
+Dates.month(vandag)
+Dates.day(vandag)
 #
 # There is a range of other functions including dayofweek(), dayname(), monthname(), yearmonth(), yearmonthday() and
 # isleapyear().
 #
-hour(nou)
-minute(nou)
-second(nou)
+Dates.hour(nou)
+Dates.minute(nou)
+Dates.second(nou)
 
-firstdayofweek(vandag)
-firstdayofmonth(vandag)
+Dates.firstdayofweek(vandag)
+Dates.firstdayofmonth(vandag)
 
 # What is date next Monday?
 #
@@ -386,11 +384,11 @@ Dates.tonext(d -> Dates.dayofweek(d) == Dates.Monday, vandag)
 # Arithmetic.
 #
 now() - nou
-vanday + Dates.Year(1) + Dates.Month(3) + Dates.Day(2)
+vandag + Dates.Year(1) + Dates.Month(3) + Dates.Day(2)
 
 # Ranges.
 #
-collect(Date(2015,1,1):Day(7):Date(2016,1,1))	# One week intervals
+collect(Date(2015,1,1):Dates.Day(7):Date(2016,1,1))	# One week intervals
 
 # Timing execution.
 #
