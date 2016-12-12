@@ -105,8 +105,8 @@ Float64(3)
 #
 # convert() will check for loss of precision.
 #
-convert(Int64, 3.5)	# Will generate InexactError.
-Int64(3.5)					# Will generate InexactError too.
+convert(Int64, 3.5)	                                # Will generate InexactError.
+Int64(3.5)					        # Will generate InexactError too.
 
 # Converting values to a common type.
 #
