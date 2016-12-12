@@ -244,7 +244,7 @@ fibtuple[4:end]
 
 # Tuples are immutable.
 #
-fibtuple[4] = 9                 # This will generate an error!
+fibtuple[4] = 9                      # This will generate an error!
 
 # Tuples support iteration.
 #
