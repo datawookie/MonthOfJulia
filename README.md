@@ -55,11 +55,10 @@ I trust that the intent will still be clear.
 ## Acknowledgements
 
 In the process of putting these notes together, I used the following invaluable references:
-<ul>
-<li> <a href="https://www.packtpub.com/application-development/getting-started-julia-programming">Getting Started with Julia</a> (Ivo Balbaert, Packt);
-<li> <a href="http://samuelcolvin.github.io/JuliaByExample/">Julia by Example</a>;
-<li> <a href="https://en.wikibooks.org/wiki/Introducing_Julia">Introducing Julia</a>;
-<li> <a href="http://julialang.org/learning/">Julia Documentation</a>;
-<li> <a href="http://julia.readthedocs.org/en/latest/manual/">The Julia Manual</a>;
-<li> [Learn Julia](https://www.manning.com/books/learn-julia) (Chris von Csefalvay, Manning).
-</ul>
+
+- [Getting Started with Julia](https://www.packtpub.com/application-development/getting-started-julia-programming) (Ivo Balbaert, Packt);
+- [Julia by Example](http://samuelcolvin.github.io/JuliaByExample/);
+- [Introducing Julia](https://en.wikibooks.org/wiki/Introducing_Julia);
+- [Julia Documentation](http://julialang.org/learning/);
+- [The Julia Manual](http://julia.readthedocs.org/en/latest/manual/);
+- [Learn Julia](https://www.manning.com/books/learn-julia) (Chris von Csefalvay, Manning).
