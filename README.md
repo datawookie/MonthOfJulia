@@ -43,7 +43,7 @@ I trust that the intent will still be clear.
 - Day 28: [Hypothesis Tests](http://wp.me/p3pzmk-zL "p-Values and Confidence Intervals.")
 - Day 29: [Distances](http://wp.me/p3pzmk-Dy "Euclidean, Manhattan, Cosine: different ways to calculate distances.")
 - Day 30: [Clustering](http://wp.me/p3pzmk-yr "Putting similar things together.")
-- Day 31: [Regression](http://wp.me/p3pzmk-z2 "Fitting a straight line to a bundle of points.")
+- Day 31: [Regression](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-31-regression/ "Fitting a straight line to a bundle of points.")
 - Day 32: [Classification](http://wp.me/p3pzmk-DF "Assigning classes to objects.")
 - Day 33: [Evolutionary Algorithms](http://wp.me/p3pzmk-uz "Crossover, Mutation and Elitism.")
 - Day 34: [Networking](http://wp.me/p3pzmk-ym "FTP, HTTP and the Twitter API.")
