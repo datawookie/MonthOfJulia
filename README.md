@@ -39,7 +39,7 @@ I trust that the intent will still be clear.
 - Day 24: [Graphs](http://www.exegetic.biz/blog/2015/09/monthofjulia-day-24-graphs/ "Nodes and Edges.")
 - Day 25: [Interfacing with Other Languages](http://www.exegetic.biz/blog/2015/09/monthofjulia-day-25-other-languages/ "FORTRAN, C, Python etc.")
 - Day 26: [Statistics](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-26-statistics/ "Mean, Variance etc.")
-- Day 27: [Distributions]http://www.exegetic.biz/blog/2015/10/monthofjulia-day-27-distributions/ "Generating samples from Distributions of any sort.")
+- Day 27: [Distributions](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-27-distributions/ "Generating samples from Distributions of any sort.")
 - Day 28: [Hypothesis Tests](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-28-hypothesis-tests/ "p-Values and Confidence Intervals.")
 - Day 29: [Distances](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-29-distances/ "Euclidean, Manhattan, Cosine: different ways to calculate distances.")
 - Day 30: [Clustering](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-30-clustering/ "Putting similar things together.")
