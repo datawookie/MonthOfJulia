@@ -44,13 +44,13 @@ I trust that the intent will still be clear.
 - Day 29: [Distances](http://wp.me/p3pzmk-Dy "Euclidean, Manhattan, Cosine: different ways to calculate distances.")
 - Day 30: [Clustering](http://wp.me/p3pzmk-yr "Putting similar things together.")
 - Day 31: [Regression](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-31-regression/ "Fitting a straight line to a bundle of points.")
-- Day 32: [Classification](http://wp.me/p3pzmk-DF "Assigning classes to objects.")
-- Day 33: [Evolutionary Algorithms](http://wp.me/p3pzmk-uz "Crossover, Mutation and Elitism.")
-- Day 34: [Networking](http://wp.me/p3pzmk-ym "FTP, HTTP and the Twitter API.")
-- Day 35: [Mapping](http://wp.me/p3pzmk-E2 "Maps from OpenStreetMap.")
-- Day 36: [Markdown](http://wp.me/p3pzmk-G6 "Formatting documents.")
-- Day 37: [Fourier Transform](http://wp.me/p3pzmk-HE "Flipping between the time and frequency domains.")
-- Day 38: [Imaging](http://wp.me/p3pzmk-G9 "Image processing.")
+- Day 32: [Classification](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-32-classification/ "Assigning classes to objects.")
+- Day 33: [Evolutionary Algorithms](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-33-evolutionary-algorithms/ "Crossover, Mutation and Elitism.")
+- Day 34: [Networking](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-34-networking/ "FTP, HTTP and the Twitter API.")
+- Day 35: [Mapping](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-35-mapping/ "Maps from OpenStreetMap.")
+- Day 36: [Markdown](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-36-markdown/ "Formatting documents.")
+- Day 37: [Fourier Transform](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-37-fourier-techniques/ "Flipping between the time and frequency domains.")
+- Day 38: [Imaging](http://www.exegetic.biz/blog/2015/10/monthofjulia-day-38-imaging/ "Image processing.")
 
 ## Acknowledgements
 
