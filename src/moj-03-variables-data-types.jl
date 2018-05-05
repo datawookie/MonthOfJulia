@@ -66,16 +66,16 @@ isa(8, Int64)
 isa(8, Number)
 isa(8, AbstractString)
 
-# The type hierarchy can be reconstructed using super() and subtypes().
+# The type hierarchy can be reconstructed using supertype() and subtypes().
 #
-super(Float64)
-super(super(Float64))
+supertype(Float64)
+supertype(supertype(Float64))
 subtypes(AbstractFloat)
 #
-super(Int64)
-super(Signed)
-super(Integer)
-super(Real)
+supertype(Int64)
+supertype(Signed)
+supertype(Integer)
+supertype(Real)
 Int64 <: Signed <: Integer <: Real <: Number
 
 # Subtype relationships can be queried.
