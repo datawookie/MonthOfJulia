@@ -30,5 +30,5 @@ ans                             # Retrieve previous result
 
 # GETTING HELP & INFORMATION ------------------------------------------------------------------------------------------
 
-help(sqrt)						# Or just hit '?' in the REPL
+# Just hit '?' and type e.g. sqrt in the REPL
 apropos("cosine")
