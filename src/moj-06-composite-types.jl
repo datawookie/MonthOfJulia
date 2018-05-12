@@ -2,7 +2,7 @@
 
 # Defining a composite type.
 #
-type GeographicLocation
+mutable struct GeographicLocation
     latitude::Float64
     longitude::Float64
     altitude::Float64
@@ -39,7 +39,7 @@ locations = [g1, g2, g3]
 
 # Defining an immutable type. Computationally these are more efficient because the code is easier to optimise.
 #
-immutable PersonData
+struct PersonData
     firstName::String
     lastName::String
     idNumber::BigInt
@@ -56,7 +56,7 @@ PersonData.types
 
 # Type aliases.
 #
-typealias Person PersonData
+const Person = PersonData
 
 # Create instance of aliased type.
 #
@@ -64,9 +64,8 @@ edna = Person("Edna", "Castle", 8005134129081)
 
 # Subtypes can only be derived from abstract types.
 #
-abstract Mammal
-type Cow <: Mammal
-end
+abstract type Mammal end
+struct Cow <: Mammal end
 
 Mammal()                            # You can't instantiate an abstract type!
 Cow()
