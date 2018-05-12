@@ -120,8 +120,8 @@ abstract type Document end
 # efficient.
 #
 struct JournalArticle <: Document
-    author::Array{AbstractString, 1}
-    title::AbstractString
+    author::Array{String, 1}
+    title::String
     DOI::String
     journal::String
     year::Unsigned
@@ -154,9 +154,9 @@ networks = JournalArticle(["István A. Kovács", "Albert-László Barabási"], "
 # instantiate a new object.
 #
 struct Book <: Document
-    author::Array{AbstractString, 1}
-    title::AbstractString
-    publisher::AbstractString
+    author::Array{String, 1}
+    title::String
+    publisher::String
     year::Int
     #
     # Inner constructor
@@ -173,7 +173,7 @@ end
 
 # Create an additional "outer" constructor which accepts a single author name.
 #
-Book(author::AbstractString, title::AbstractString, publisher::AbstractString, year::Int64) = Book([author], title, publisher, year)
+Book(author::String, title::String, publisher::String, year::Int64) = Book([author], title, publisher, year)
 
 # Create an instance of Book.
 #
