@@ -113,7 +113,7 @@ ParametricGeographicLocation(-30.0, 30.0, 15.0)     # T is a Float64
 
 # Defining an abstract type.
 #
-abstract Document
+abstract type Document end
 
 # Now define a (concrete) subtype. The more specific one can be with the type constraints, the more efficient this
 # type will be. Avoid leaving attributes without a type because then they will default to Any, which is the least
