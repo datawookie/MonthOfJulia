@@ -82,9 +82,9 @@ typeof(1.0+2.0im)                   # Complex{Float64}
 #
 # We could restrict the range of applicable types using {T <: Integer}, for example, rather then {T}.
 #
-type Stack{T}
+struct Stack{T}
     stack::Array{T, 1}
-    Stack() = new(Array(T, 0))
+    Stack{T}() where T = new(Array(T, 0))
 end
 
 # By analogy, we can also create parametric methods.
