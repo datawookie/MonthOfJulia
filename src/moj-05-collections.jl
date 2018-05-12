@@ -396,7 +396,7 @@ extrema([1, -5, 3, -3, 9])
 indmax([1, -5, 3, -3, 9])               # See also indmin().
 findmax([1, -5, 3, -3, 9])              # See also findmin().
 
-maxabs([9, -13, 5, -1])                 # See also minabs().
+maximum(abs, [9, -13, 5, -1])                 # See also minabs().
 
 count(x -> x > 3, [1, 2, 3, 4, 5])
 any(x -> x > 3, [1, 2, 3, 4, 5])
