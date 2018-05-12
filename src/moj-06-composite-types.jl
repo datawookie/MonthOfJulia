@@ -40,8 +40,8 @@ locations = [g1, g2, g3]
 # Defining an immutable type. Computationally these are more efficient because the code is easier to optimise.
 #
 immutable PersonData
-    firstName::AbstractString
-    lastName::AbstractString
+    firstName::String
+    lastName::String
     idNumber::BigInt
 end
 
