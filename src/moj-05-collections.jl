@@ -321,7 +321,6 @@ delete!(ages, "Andrew")
 #
 Dict()                                          # Empty dictionary with key/value of arbitrary type.
 Dict{String, Float64}()                         # Empty dictionary with key/value of specific type.
-Dict(["Andrew", "Claire"], [43, 35])            # Zip creation (old).
 Dict(zip(["Andrew", "Claire"], [43, 35]))       # Zip creation (new).
 [i => i^2 for i = 1:10]                         # Note that the result is unordered.
 
