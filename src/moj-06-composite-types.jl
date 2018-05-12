@@ -119,7 +119,7 @@ abstract type Document end
 # type will be. Avoid leaving attributes without a type because then they will default to Any, which is the least
 # efficient.
 #
-struct JournalArticle <: Document
+mutable struct JournalArticle <: Document
     author::Array{String, 1}
     title::String
     DOI::String
@@ -153,7 +153,7 @@ networks = JournalArticle(["István A. Kovács", "Albert-László Barabási"], "
 # specified when the type is defined. An outer constructor must call one of the inner constructors in order to
 # instantiate a new object.
 #
-struct Book <: Document
+mutable struct Book <: Document
     author::Array{String, 1}
     title::String
     publisher::String
