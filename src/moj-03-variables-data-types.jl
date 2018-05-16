@@ -83,7 +83,7 @@ Int64 <: Signed <: Integer <: Real <: Number
 Float64 <: AbstractFloat
 Float64 <: Integer
 Int64 <: Int						# Int64 is a subtype of Int
-ASCIIString <: Int					# ASCIIString is not a subtype of Int
+String <: Int					        # String is not a subtype of Int
 issubtype(Float64, AbstractFloat)
 
 # ANNOTATIONS & CONVERSIONS -------------------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ promote_type(Float64, Int64, Complex{Int64}, String)
 #
 #   Number				<- Abstract
 #     Real				<- Abstract
-#       FloatingPoint			<- Abstract
+#       AbstractFloat	                <- Abstract
 #         BigFloat
 #         Float16
 #         Float32
@@ -151,14 +151,14 @@ promote_type(Float64, Int64, Complex{Int64}, String)
 #
 1//2
 float(1//2)
-12//8                               # Fractions always expressed in simplest form.
+12//8                                                   # Fractions always expressed in simplest form.
 
 # Numerical precision
 #
 sqrt(2)
 big(sqrt(2))
 
-with_rounding(Float64,RoundNearest) do
+setrounding(Float64,RoundNearest) do
 	sqrt(2)
 end
 
@@ -186,7 +186,7 @@ srand(5);
 
 # Clip array to maximum and minimum values.
 #
-clamp(rand(10), 0.1, 0.5)
+clamp.(rand(10), 0.1, 0.5)
 
 # BITWISE OPERATIONS --------------------------------------------------------------------------------------------------
 
@@ -205,8 +205,8 @@ bits(359)					# Binary representation as a String.
 #
 # More information at http://julia.readthedocs.org/en/latest/manual/strings/.
 
-s1 = "This is a string.";			# type: ASCIIString. Strings are enclosed in double quotes.
-s2 = "β is a Unicode character.";		# type: UTF8String.
+s1 = "This is a string.";			# type: String. Strings are enclosed in double quotes.
+s2 = "β is a Unicode character.";	        # type: String.
 c = 'a'						# type: Char. Characters are enclosed in single quotes.
 #
 "a" != 'a'					# Strings and characters are not equivalent.
@@ -218,7 +218,7 @@ multi-line
 string.
 """
 
-# ASCII and Unicode strings are different types.
+# ASCII and Unicode strings have the same type, String.
 #
 typeof(s1)
 typeof(s2)
