@@ -122,7 +122,7 @@ promote_type(Float64, Int64, Complex{Int64}, String)
 #
 #   Number				<- Abstract
 #     Real				<- Abstract
-#       AbstractFloat	<- Abstract
+#       AbstractFloat	                <- Abstract
 #         BigFloat
 #         Float16
 #         Float32
@@ -151,7 +151,7 @@ promote_type(Float64, Int64, Complex{Int64}, String)
 #
 1//2
 float(1//2)
-12//8                               # Fractions always expressed in simplest form.
+12//8                                                   # Fractions always expressed in simplest form.
 
 # Numerical precision
 #
