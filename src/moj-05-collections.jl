@@ -321,7 +321,6 @@ delete!(ages, "Andrew")
 #
 Dict()                                          # Empty dictionary with key/value of arbitrary type.
 Dict{String, Float64}()                         # Empty dictionary with key/value of specific type.
-Dict(["Andrew", "Claire"], [43, 35])            # Zip creation (old).
 Dict(zip(["Andrew", "Claire"], [43, 35]))       # Zip creation (new).
 [i => i^2 for i = 1:10]                         # Note that the result is unordered.
 
@@ -397,7 +396,7 @@ extrema([1, -5, 3, -3, 9])
 indmax([1, -5, 3, -3, 9])               # See also indmin().
 findmax([1, -5, 3, -3, 9])              # See also findmin().
 
-maxabs([9, -13, 5, -1])                 # See also minabs().
+maximum(abs, [9, -13, 5, -1])                 # See also minabs().
 
 count(x -> x > 3, [1, 2, 3, 4, 5])
 any(x -> x > 3, [1, 2, 3, 4, 5])
