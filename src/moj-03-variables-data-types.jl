@@ -206,7 +206,7 @@ bits(359)					# Binary representation as a String.
 # More information at http://julia.readthedocs.org/en/latest/manual/strings/.
 
 s1 = "This is a string.";			# type: String. Strings are enclosed in double quotes.
-s2 = "β is a Unicode character.";	# type: String.
+s2 = "β is a Unicode character.";	        # type: String.
 c = 'a'						# type: Char. Characters are enclosed in single quotes.
 #
 "a" != 'a'					# Strings and characters are not equivalent.
