@@ -2,7 +2,7 @@
 
 # Defining a composite type.
 #
-type GeographicLocation
+mutable struct GeographicLocation
     latitude::Float64
     longitude::Float64
     altitude::Float64
@@ -39,9 +39,9 @@ locations = [g1, g2, g3]
 
 # Defining an immutable type. Computationally these are more efficient because the code is easier to optimise.
 #
-immutable PersonData
-    firstName::AbstractString
-    lastName::AbstractString
+struct PersonData
+    firstName::String
+    lastName::String
     idNumber::BigInt
 end
 
@@ -56,7 +56,7 @@ PersonData.types
 
 # Type aliases.
 #
-typealias Person PersonData
+const Person = PersonData
 
 # Create instance of aliased type.
 #
@@ -64,9 +64,8 @@ edna = Person("Edna", "Castle", 8005134129081)
 
 # Subtypes can only be derived from abstract types.
 #
-abstract Mammal
-type Cow <: Mammal
-end
+abstract type Mammal end
+struct Cow <: Mammal end
 
 Mammal()                            # You can't instantiate an abstract type!
 Cow()
@@ -83,9 +82,9 @@ typeof(1.0+2.0im)                   # Complex{Float64}
 #
 # We could restrict the range of applicable types using {T <: Integer}, for example, rather then {T}.
 #
-type Stack{T}
+struct Stack{T}
     stack::Array{T, 1}
-    Stack() = new(Array(T, 0))
+    Stack{T}() where T = new(Array(T, 0))
 end
 
 # By analogy, we can also create parametric methods.
@@ -101,7 +100,7 @@ divide{T <: Integer}(x::T, y::T) = (div(x, y), x % y)
 
 # We can make out GeographicLocation type a little more flexible.
 #
-type ParametricGeographicLocation{T<:Real}
+struct ParametricGeographicLocation{T<:Real}
     latitude::T
     longitude::T
     altitude::T
@@ -114,15 +113,15 @@ ParametricGeographicLocation(-30.0, 30.0, 15.0)     # T is a Float64
 
 # Defining an abstract type.
 #
-abstract Document
+abstract type Document end
 
 # Now define a (concrete) subtype. The more specific one can be with the type constraints, the more efficient this
 # type will be. Avoid leaving attributes without a type because then they will default to Any, which is the least
 # efficient.
 #
-type JournalArticle <: Document
-    author::Array{AbstractString, 1}
-    title::AbstractString
+mutable struct JournalArticle <: Document
+    author::Array{String, 1}
+    title::String
     DOI::String
     journal::String
     year::Unsigned
@@ -154,10 +153,10 @@ networks = JournalArticle(["István A. Kovács", "Albert-László Barabási"], "
 # specified when the type is defined. An outer constructor must call one of the inner constructors in order to
 # instantiate a new object.
 #
-type Book <: Document
-    author::Array{AbstractString, 1}
-    title::AbstractString
-    publisher::AbstractString
+mutable struct Book <: Document
+    author::Array{String, 1}
+    title::String
+    publisher::String
     year::Int
     #
     # Inner constructor
@@ -174,7 +173,7 @@ end
 
 # Create an additional "outer" constructor which accepts a single author name.
 #
-Book(author::AbstractString, title::AbstractString, publisher::AbstractString, year::Int64) = Book([author], title, publisher, year)
+Book(author::String, title::String, publisher::String, year::Int64) = Book([author], title, publisher, year)
 
 # Create an instance of Book.
 #

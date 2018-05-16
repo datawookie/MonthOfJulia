@@ -30,5 +30,5 @@ ans                             # Retrieve previous result
 
 # GETTING HELP & INFORMATION ------------------------------------------------------------------------------------------
 
-help(sqrt)						# Or just hit '?' in the REPL
+# Just hit '?' and then type a function name.
 apropos("cosine")
