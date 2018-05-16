@@ -30,5 +30,5 @@ ans                             # Retrieve previous result
 
 # GETTING HELP & INFORMATION ------------------------------------------------------------------------------------------
 
-# Just hit '?' and type a function name.
+# Just hit '?' and then type a function name.
 apropos("cosine")
