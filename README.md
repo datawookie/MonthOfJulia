@@ -2,7 +2,7 @@
 
 Julia is a high-performance platform for applying Functional Programming principles to statistical and scientific problems. Julia already has a large and growing user base, resulting in a diverse range of additional packages. It's a high high-level language, so relatively easy to learn and write (think Python). However, it has a sophisticated JIT compiler which results in execution speeds comparable to C and FORTRAN.
 
-![Julia logo](https://datawookie.netlify.com/static/img/2015/08/Julia-Logo.png "Julia!")
+![Julia logo](https://datawookie.netlify.com/img/logo/logo-julia.png "Julia!")
 
 R is still my preferred tool for day to day analytical tasks but I can see that I will be dabbling more and more with Julia in the future.
 
